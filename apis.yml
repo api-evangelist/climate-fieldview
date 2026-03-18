@@ -1,18 +1,53 @@
 aid: climate-fieldview
 url: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/apis.yml
 apis:
-- aid: climate-fieldview:climate-fieldview-api
-  name: Climate FieldView (Bayer) API
+- aid: climate-fieldview:fieldview-platform-api
+  name: Climate FieldView Platform API
   tags:
   - Agriculture
   - Precision Ag
   - Crop Data
   - Bayer
+  - Field Boundaries
+  - Planting
+  - Harvest
+  - OAuth2
   image: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/image.png
-  humanURL: https://climate.com/
+  humanURL: https://dev.fieldview.com/
   baseURL: https://api.climate.com
   properties:
-  - url: https://climate.com/
+  - url: https://dev.fieldview.com/technical-documentation/
     type: Documentation
+  - url: https://dev.fieldview.com/api-details/
+    type: Authentication
+  - url: https://dev.fieldview.com/faq/
+    type: FAQ
+  - url: https://dev.fieldview.com/technical-documentation/next-versions/
+    type: ChangeLog
+  - url: https://github.com/TheClimateCorporation/api-example
+    type: SDKs
   description: >-
-    Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. APIs enable access to field boundaries, crop performance metrics, and agronomic recommendations.
+    Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations. The base token endpoint is https://api.climate.com/api/oauth/token.
+common:
+- url: https://climate.com/
+  type: Website
+- url: https://dev.fieldview.com/
+  type: Portal
+- url: https://dev.fieldview.com/technical-documentation/
+  type: Documentation
+- url: https://dev.fieldview.com/api-details/
+  type: Authentication
+- url: https://dev.fieldview.com/faq/
+  type: GettingStarted
+- url: https://climate.com/en-us/legal/terms-of-service.html
+  type: TermsOfService
+- url: https://climate.com/legal/privacy-policy
+  type: PrivacyPolicy
+- url: https://github.com/TheClimateCorporation/api-example
+  type: GitHubOrg
+- url: https://climate.com/partners
+  type: Partners
+maintainers:
+- name: Kin Lane
+  email: kin@apievangelist.com
+modified: '2026-03-18'
