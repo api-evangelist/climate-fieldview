@@ -1,0 +1,18 @@
+aid: climate-fieldview
+url: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/apis.yml
+apis:
+- aid: climate-fieldview:climate-fieldview-api
+  name: Climate FieldView (Bayer) API
+  tags:
+  - Agriculture
+  - Precision Ag
+  - Crop Data
+  - Bayer
+  image: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/image.png
+  humanURL: https://climate.com/
+  baseURL: https://api.climate.com
+  properties:
+  - url: https://climate.com/
+    type: Documentation
+  description: >-
+    Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. APIs enable access to field boundaries, crop performance metrics, and agronomic recommendations.
