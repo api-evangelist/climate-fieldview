@@ -1,0 +1,580 @@
+openapi: 3.1.0
+info:
+  title: Climate FieldView Platform API
+  description: >-
+    Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level
+    agronomic data including planting maps, soil sampling, yield data, and weather overlays.
+    The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code
+    grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample
+    results, and agronomic recommendations.
+  version: 4.0.0
+  contact:
+    name: FieldView Developer Support
+    url: https://dev.fieldview.com/
+  license:
+    name: Climate Corporation Terms of Service
+    url: https://climate.com/en-us/legal/terms-of-service.html
+servers:
+  - url: https://api.climate.com/api
+    description: Climate FieldView Production API
+security:
+  - oauth2: []
+tags:
+  - name: Fields
+    description: Agricultural field boundaries and metadata
+  - name: Planting
+    description: As-planted activity data and maps
+  - name: Harvest
+    description: As-harvested yield data and maps
+  - name: Application
+    description: As-applied agrochemical data
+  - name: Soil Sampling
+    description: Soil sample results and layers
+  - name: Images
+    description: Satellite and aerial imagery layers
+paths:
+  /v4/fields:
+    get:
+      operationId: listFields
+      summary: List all fields
+      description: >-
+        Returns a paginated list of fields belonging to the authenticated user. Fields include
+        boundaries stored as GeoJSON and associated metadata.
+      tags:
+        - Fields
+      parameters:
+        - name: updatedAfter
+          in: query
+          description: Return only fields updated after this ISO 8601 timestamp
+          schema:
+            type: string
+            format: date-time
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 100
+            maximum: 500
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: Paginated list of fields
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /v4/fields/{fieldId}:
+    get:
+      operationId: getField
+      summary: Get a specific field
+      description: Returns detailed information for a single field including its GeoJSON boundary.
+      tags:
+        - Fields
+      parameters:
+        - name: fieldId
+          in: path
+          required: true
+          description: Unique field identifier
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Field details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Field'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v4/fields/{fieldId}/boundary:
+    get:
+      operationId: getFieldBoundary
+      summary: Get field boundary as GeoJSON
+      description: Returns the field boundary polygon as a GeoJSON Feature object.
+      tags:
+        - Fields
+      parameters:
+        - name: fieldId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Field boundary GeoJSON
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoJsonFeature'
+  /v4/layers/asPlanted:
+    get:
+      operationId: listAsPlantedLayers
+      summary: List as-planted activity layers
+      description: >-
+        Returns all as-planted layers (planting activity records) accessible to the authenticated
+        user. Each layer is associated with one or more field IDs and includes crop and seed variety data.
+      tags:
+        - Planting
+      parameters:
+        - name: fieldId
+          in: query
+          description: Filter layers for a specific field
+          schema:
+            type: string
+            format: uuid
+        - name: occurredBefore
+          in: query
+          description: Return layers for activities that occurred before this date (ISO 8601)
+          schema:
+            type: string
+            format: date-time
+        - name: occurredAfter
+          in: query
+          description: Return layers for activities that occurred after this date (ISO 8601)
+          schema:
+            type: string
+            format: date-time
+        - name: updatedAfter
+          in: query
+          description: Return only layers updated after this timestamp
+          schema:
+            type: string
+            format: date-time
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: List of as-planted layers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LayerList'
+  /v4/layers/asPlanted/{layerId}:
+    get:
+      operationId: getAsPlantedLayer
+      summary: Get a specific as-planted layer
+      description: Returns detailed metadata for a single as-planted activity layer.
+      tags:
+        - Planting
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: As-planted layer details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlantingLayer'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v4/layers/asPlanted/{layerId}/contents:
+    get:
+      operationId: getAsPlantedLayerContents
+      summary: Download as-planted layer spatial data
+      description: >-
+        Returns the spatial raster or vector data for an as-planted layer. Response is a download
+        URL or binary content for the planting map.
+      tags:
+        - Planting
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Layer spatial content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+  /v4/layers/asHarvested:
+    get:
+      operationId: listAsHarvestedLayers
+      summary: List as-harvested yield layers
+      description: >-
+        Returns all as-harvested layers (yield data) accessible to the authenticated user.
+        Supports filtering by field, crop type, and date range.
+      tags:
+        - Harvest
+      parameters:
+        - name: fieldId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: occurredBefore
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: occurredAfter
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: updatedAfter
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: List of as-harvested layers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LayerList'
+  /v4/layers/asHarvested/{layerId}:
+    get:
+      operationId: getAsHarvestedLayer
+      summary: Get a specific as-harvested layer
+      description: Returns detailed metadata for a single as-harvested yield layer.
+      tags:
+        - Harvest
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: As-harvested layer details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HarvestLayer'
+  /v4/layers/asApplied:
+    get:
+      operationId: listAsAppliedLayers
+      summary: List as-applied agrochemical layers
+      description: Returns all as-applied layers (fertilizer, pesticide, and herbicide application records).
+      tags:
+        - Application
+      parameters:
+        - name: fieldId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: occurredAfter
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: List of as-applied layers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LayerList'
+  /v4/soilSampling/results:
+    get:
+      operationId: listSoilSamplingResults
+      summary: List soil sampling results
+      description: Returns soil sampling results including nutrient analysis and pH measurements for fields.
+      tags:
+        - Soil Sampling
+      parameters:
+        - name: fieldId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: updatedAfter
+          in: query
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: List of soil sampling results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SoilSampleList'
+  /oauth/token:
+    post:
+      operationId: getAccessToken
+      summary: Obtain OAuth2 access token
+      description: >-
+        Exchange an authorization code or refresh token for an OAuth2 access token.
+        Supports authorization_code and refresh_token grant types.
+      tags:
+        - Fields
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [grant_type, client_id, client_secret]
+              properties:
+                grant_type:
+                  type: string
+                  enum: [authorization_code, refresh_token]
+                code:
+                  type: string
+                  description: Authorization code (for authorization_code grant)
+                refresh_token:
+                  type: string
+                  description: Refresh token (for refresh_token grant)
+                redirect_uri:
+                  type: string
+                  format: uri
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+      responses:
+        '200':
+          description: Access token response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization for Climate FieldView API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.climate.com/api/oauth/authorize
+          tokenUrl: https://api.climate.com/api/oauth/token
+          scopes:
+            fields:read: Read field boundaries and metadata
+            layers:read: Read activity layer data
+            layers:write: Upload activity layer data
+            soilsampling:read: Read soil sampling results
+            imagery:read: Read satellite imagery layers
+  schemas:
+    FieldList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldSummary'
+        total:
+          type: integer
+        hasMore:
+          type: boolean
+    FieldSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+        acreage:
+          type: number
+          format: double
+    Field:
+      allOf:
+        - $ref: '#/components/schemas/FieldSummary'
+        - type: object
+          properties:
+            growerName:
+              type: string
+            farmName:
+              type: string
+            boundary:
+              $ref: '#/components/schemas/GeoJsonFeature'
+            centroid:
+              type: object
+              properties:
+                latitude:
+                  type: number
+                longitude:
+                  type: number
+            createdAt:
+              type: string
+              format: date-time
+    GeoJsonFeature:
+      type: object
+      required: [type, geometry]
+      properties:
+        type:
+          type: string
+          enum: [Feature]
+        geometry:
+          type: object
+          properties:
+            type:
+              type: string
+              enum: [Polygon, MultiPolygon]
+            coordinates:
+              type: array
+        properties:
+          type: object
+    LayerList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LayerSummary'
+        total:
+          type: integer
+        hasMore:
+          type: boolean
+    LayerSummary:
+      type: object
+      properties:
+        id:
+          type: string
+        fieldIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        occurredOn:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    PlantingLayer:
+      allOf:
+        - $ref: '#/components/schemas/LayerSummary'
+        - type: object
+          properties:
+            crop:
+              type: string
+              examples: [CORN, SOYBEAN, WHEAT]
+            seedVariety:
+              type: string
+            seedingRate:
+              type: number
+              description: Seeds per acre
+            area:
+              type: number
+              description: Planted area in acres
+    HarvestLayer:
+      allOf:
+        - $ref: '#/components/schemas/LayerSummary'
+        - type: object
+          properties:
+            crop:
+              type: string
+              examples: [CORN, SOYBEAN, WHEAT]
+            yieldAverage:
+              type: number
+              description: Average yield (bushels per acre)
+            moistureAverage:
+              type: number
+              description: Average grain moisture percentage
+            area:
+              type: number
+              description: Harvested area in acres
+    SoilSampleList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SoilSample'
+    SoilSample:
+      type: object
+      properties:
+        id:
+          type: string
+        fieldId:
+          type: string
+          format: uuid
+        sampledOn:
+          type: string
+          format: date
+        results:
+          type: object
+          properties:
+            pH:
+              type: number
+            organicMatter:
+              type: number
+            phosphorus:
+              type: number
+            potassium:
+              type: number
+            cationExchangeCapacity:
+              type: number
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        refresh_token:
+          type: string
+        token_type:
+          type: string
+          enum: [Bearer]
+        expires_in:
+          type: integer
+          description: Token lifetime in seconds
+        scope:
+          type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        error_description:
+          type: string
+        statusCode:
+          type: integer
+  responses:
+    Unauthorized:
+      description: Missing or invalid access token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'

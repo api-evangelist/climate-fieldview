@@ -26,11 +26,19 @@ apis:
     type: ChangeLog
   - url: https://github.com/TheClimateCorporation/api-example
     type: SDKs
+  - url: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/openapi/climate-fieldview-platform-openapi.yml
+    type: OpenAPI
   description: >-
     Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations. The base token endpoint is https://api.climate.com/api/oauth/token.
 common:
 - url: https://climate.com/
   type: Website
+- url: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/openapi/climate-fieldview-platform-openapi.yml
+  type: OpenAPI
+- url: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/json-schema/climate-fieldview-field-schema.json
+  type: JSONSchema
+- url: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/json-ld/climate-fieldview-context.jsonld
+  type: JSONLDContext
 - url: https://dev.fieldview.com/
   type: Portal
 - url: https://dev.fieldview.com/technical-documentation/

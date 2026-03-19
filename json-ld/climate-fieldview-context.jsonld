@@ -1,0 +1,98 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "fieldview": "https://api.climate.com/api/schemas/",
+    "schema": "https://schema.org/",
+    "geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Field": {
+      "@id": "fieldview:Field",
+      "@type": "schema:Place"
+    },
+    "PlantingLayer": {
+      "@id": "fieldview:PlantingLayer",
+      "@type": "schema:Dataset"
+    },
+    "HarvestLayer": {
+      "@id": "fieldview:HarvestLayer",
+      "@type": "schema:Dataset"
+    },
+    "SoilSample": {
+      "@id": "fieldview:SoilSample",
+      "@type": "schema:Observation"
+    },
+
+    "id": "@id",
+    "name": "schema:name",
+    "growerName": {
+      "@id": "schema:provider",
+      "@type": "schema:Person"
+    },
+    "farmName": {
+      "@id": "schema:containedInPlace"
+    },
+    "acreage": {
+      "@id": "schema:floorSize",
+      "@type": "schema:QuantitativeValue"
+    },
+    "boundary": {
+      "@id": "geojson:geometry"
+    },
+    "centroid": {
+      "@id": "geo:Point"
+    },
+    "latitude": {
+      "@id": "geo:lat",
+      "@type": "xsd:double"
+    },
+    "longitude": {
+      "@id": "geo:long",
+      "@type": "xsd:double"
+    },
+    "state": {
+      "@id": "schema:addressRegion"
+    },
+    "county": {
+      "@id": "schema:addressLocality"
+    },
+    "crop": {
+      "@id": "schema:material"
+    },
+    "seedVariety": {
+      "@id": "fieldview:seedVariety"
+    },
+    "seedingRate": {
+      "@id": "fieldview:seedingRate"
+    },
+    "yieldAverage": {
+      "@id": "schema:yield",
+      "@type": "schema:QuantitativeValue"
+    },
+    "moistureAverage": {
+      "@id": "fieldview:moistureContent"
+    },
+    "fieldIds": {
+      "@id": "fieldview:relatedField",
+      "@container": "@set"
+    },
+    "occurredOn": {
+      "@id": "schema:startDate",
+      "@type": "xsd:dateTime"
+    },
+    "sampledOn": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:date"
+    },
+    "createdAt": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "updatedAt": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

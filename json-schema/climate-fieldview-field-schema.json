@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.climate.com/api/schemas/field",
+  "title": "Climate FieldView Field",
+  "description": "Schema representing an agricultural field in the Climate FieldView platform, including its boundary, metadata, and associated agronomic layers.",
+  "type": "object",
+  "required": ["id", "name"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique field identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Field name as entered by the grower",
+      "maxLength": 255
+    },
+    "growerName": {
+      "type": "string",
+      "description": "Name of the grower who owns this field"
+    },
+    "farmName": {
+      "type": "string",
+      "description": "Farm or operation name the field belongs to"
+    },
+    "acreage": {
+      "type": "number",
+      "format": "double",
+      "description": "Field area in acres",
+      "minimum": 0
+    },
+    "boundary": {
+      "$ref": "#/$defs/GeoJsonFeature",
+      "description": "Field boundary as a GeoJSON polygon"
+    },
+    "centroid": {
+      "$ref": "#/$defs/GeoPoint",
+      "description": "Geographic centroid of the field"
+    },
+    "state": {
+      "type": "string",
+      "description": "US state abbreviation where the field is located",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "county": {
+      "type": "string",
+      "description": "County name where the field is located"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Field creation timestamp in the platform"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last field modification timestamp"
+    }
+  },
+  "$defs": {
+    "GeoJsonFeature": {
+      "type": "object",
+      "required": ["type", "geometry"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "Feature"
+        },
+        "geometry": {
+          "oneOf": [
+            { "$ref": "#/$defs/Polygon" },
+            { "$ref": "#/$defs/MultiPolygon" }
+          ]
+        },
+        "properties": {
+          "type": ["object", "null"]
+        }
+      }
+    },
+    "Polygon": {
+      "type": "object",
+      "required": ["type", "coordinates"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "Polygon"
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Position"
+            },
+            "minItems": 4
+          }
+        }
+      }
+    },
+    "MultiPolygon": {
+      "type": "object",
+      "required": ["type", "coordinates"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "MultiPolygon"
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Position"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Position": {
+      "type": "array",
+      "description": "[longitude, latitude] coordinate pair",
+      "minItems": 2,
+      "maxItems": 3,
+      "items": {
+        "type": "number"
+      }
+    },
+    "GeoPoint": {
+      "type": "object",
+      "required": ["latitude", "longitude"],
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "format": "double",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double",
+          "minimum": -180,
+          "maximum": 180
+        }
+      }
+    }
+  }
+}
