@@ -1,20 +1,18 @@
 aid: climate-fieldview
-url: 
-  https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/apis.yml
 apis:
   - aid: climate-fieldview:fieldview-platform-api
     name: Climate FieldView Platform API
     tags:
       - Agriculture
-      - Precision Ag
-      - Crop Data
       - Bayer
+      - Crop Data
       - Field Boundaries
-      - Planting
       - Harvest
       - OAuth2
-    image: 
-      https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/image.png
+      - Planting
+      - Precision Ag
+    image: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/image.png
     humanURL: https://dev.fieldview.com/
     baseURL: https://api.climate.com
     properties:
@@ -28,8 +26,7 @@ apis:
         type: ChangeLog
       - url: https://github.com/TheClimateCorporation/api-example
         type: SDKs
-      - url: 
-          https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/openapi/climate-fieldview-platform-openapi.yml
+      - url: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/openapi/climate-fieldview-platform-openapi.yml
         type: OpenAPI
     description: >-
       Climate FieldView (a Bayer product) provides a digital agriculture platform
@@ -41,14 +38,11 @@ apis:
 common:
   - url: https://climate.com/
     type: Website
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/openapi/climate-fieldview-platform-openapi.yml
+  - url: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/openapi/climate-fieldview-platform-openapi.yml
     type: OpenAPI
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/json-schema/climate-fieldview-field-schema.json
+  - url: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/json-schema/climate-fieldview-field-schema.json
     type: JSONSchema
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/json-ld/climate-fieldview-context.jsonld
+  - url: https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/json-ld/climate-fieldview-context.jsonld
     type: JSONLDContext
   - url: https://dev.fieldview.com/
     type: Portal

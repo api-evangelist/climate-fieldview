@@ -20,18 +20,16 @@ servers:
 security:
   - oauth2: []
 tags:
-  - name: Fields
-    description: Agricultural field boundaries and metadata
-  - name: Planting
-    description: As-planted activity data and maps
-  - name: Harvest
-    description: As-harvested yield data and maps
   - name: Application
     description: As-applied agrochemical data
+  - name: Fields
+    description: Agricultural field boundaries and metadata
+  - name: Harvest
+    description: As-harvested yield data and maps
+  - name: Planting
+    description: As-planted activity data and maps
   - name: Soil Sampling
     description: Soil sample results and layers
-  - name: Images
-    description: Satellite and aerial imagery layers
 paths:
   /v4/fields:
     get:
