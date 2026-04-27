@@ -1,0 +1,43 @@
+extends:
+  - spectral:oas
+rules:
+  climate-fieldview-info-contact:
+    description: API info MUST contain a contact email or URL.
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+  climate-fieldview-https-only:
+    description: All Climate FieldView API servers MUST use HTTPS.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://'
+  climate-fieldview-operation-id:
+    description: Operations MUST have an operationId.
+    severity: error
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: operationId
+      function: truthy
+  climate-fieldview-tag-required:
+    description: Operations MUST be tagged for agronomic-domain grouping (Fields, Planting, Harvest, Application, Soil Sampling).
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].tags
+    then:
+      function: truthy
+  climate-fieldview-oauth2-required:
+    description: API MUST define an OAuth2 security scheme since FieldView authenticates with OAuth 2.0 authorization-code grant.
+    severity: error
+    given: $.components.securitySchemes
+    then:
+      function: truthy
+  climate-fieldview-server-url:
+    description: API MUST declare at least one server URL pointing at api.climate.com.
+    severity: error
+    given: $.servers
+    then:
+      function: truthy
