@@ -1,0 +1,214 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Climate FieldView Platform API — Fields
+  description: 'Climate FieldView Platform API — Fields. 4 operations. Lead operation: Obtain OAuth2 access token. Self-contained
+    Naftiko capability covering one Climate Fieldview business surface.'
+  tags:
+  - Climate Fieldview
+  - Fields
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CLIMATE_FIELDVIEW_API_KEY: CLIMATE_FIELDVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-fields
+    baseUri: https://api.climate.com/api
+    description: Climate FieldView Platform API — Fields business capability. Self-contained, no shared references.
+    resources:
+    - name: oauth-token
+      path: /oauth/token
+      operations:
+      - name: getaccesstoken
+        method: POST
+        description: Obtain OAuth2 access token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v4-fields
+      path: /v4/fields
+      operations:
+      - name: listfields
+        method: GET
+        description: List all fields
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: updatedAfter
+          in: query
+          type: string
+          description: Return only fields updated after this ISO 8601 timestamp
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+    - name: v4-fields-fieldId
+      path: /v4/fields/{fieldId}
+      operations:
+      - name: getfield
+        method: GET
+        description: Get a specific field
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fieldId
+          in: path
+          type: string
+          description: Unique field identifier
+          required: true
+    - name: v4-fields-fieldId-boundary
+      path: /v4/fields/{fieldId}/boundary
+      operations:
+      - name: getfieldboundary
+        method: GET
+        description: Get field boundary as GeoJSON
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fieldId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.CLIMATE_FIELDVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-fields-rest
+    port: 8080
+    description: REST adapter for Climate FieldView Platform API — Fields. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/oauth/token
+      name: oauth-token
+      description: REST surface for oauth-token.
+      operations:
+      - method: POST
+        name: getaccesstoken
+        description: Obtain OAuth2 access token
+        call: platform-fields.getaccesstoken
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/fields
+      name: v4-fields
+      description: REST surface for v4-fields.
+      operations:
+      - method: GET
+        name: listfields
+        description: List all fields
+        call: platform-fields.listfields
+        with:
+          updatedAfter: rest.updatedAfter
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/fields/{fieldid}
+      name: v4-fields-fieldid
+      description: REST surface for v4-fields-fieldId.
+      operations:
+      - method: GET
+        name: getfield
+        description: Get a specific field
+        call: platform-fields.getfield
+        with:
+          fieldId: rest.fieldId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/fields/{fieldid}/boundary
+      name: v4-fields-fieldid-boundary
+      description: REST surface for v4-fields-fieldId-boundary.
+      operations:
+      - method: GET
+        name: getfieldboundary
+        description: Get field boundary as GeoJSON
+        call: platform-fields.getfieldboundary
+        with:
+          fieldId: rest.fieldId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-fields-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Climate FieldView Platform API — Fields. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: obtain-oauth2-access-token
+      description: Obtain OAuth2 access token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-fields.getaccesstoken
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-all-fields
+      description: List all fields
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-fields.listfields
+      with:
+        updatedAfter: tools.updatedAfter
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-specific-field
+      description: Get a specific field
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-fields.getfield
+      with:
+        fieldId: tools.fieldId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-field-boundary-geojson
+      description: Get field boundary as GeoJSON
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-fields.getfieldboundary
+      with:
+        fieldId: tools.fieldId
+      outputParameters:
+      - type: object
+        mapping: $.

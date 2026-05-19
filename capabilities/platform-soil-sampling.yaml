@@ -1,0 +1,83 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Climate FieldView Platform API — Soil Sampling
+  description: 'Climate FieldView Platform API — Soil Sampling. 1 operations. Lead operation: List soil sampling results.
+    Self-contained Naftiko capability covering one Climate Fieldview business surface.'
+  tags:
+  - Climate Fieldview
+  - Soil Sampling
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CLIMATE_FIELDVIEW_API_KEY: CLIMATE_FIELDVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-soil-sampling
+    baseUri: https://api.climate.com/api
+    description: Climate FieldView Platform API — Soil Sampling business capability. Self-contained, no shared references.
+    resources:
+    - name: v4-soilSampling-results
+      path: /v4/soilSampling/results
+      operations:
+      - name: listsoilsamplingresults
+        method: GET
+        description: List soil sampling results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fieldId
+          in: query
+          type: string
+        - name: updatedAfter
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.CLIMATE_FIELDVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-soil-sampling-rest
+    port: 8080
+    description: REST adapter for Climate FieldView Platform API — Soil Sampling. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v4/soilsampling/results
+      name: v4-soilsampling-results
+      description: REST surface for v4-soilSampling-results.
+      operations:
+      - method: GET
+        name: listsoilsamplingresults
+        description: List soil sampling results
+        call: platform-soil-sampling.listsoilsamplingresults
+        with:
+          fieldId: rest.fieldId
+          updatedAfter: rest.updatedAfter
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-soil-sampling-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Climate FieldView Platform API — Soil Sampling. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-soil-sampling-results
+      description: List soil sampling results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-soil-sampling.listsoilsamplingresults
+      with:
+        fieldId: tools.fieldId
+        updatedAfter: tools.updatedAfter
+      outputParameters:
+      - type: object
+        mapping: $.
