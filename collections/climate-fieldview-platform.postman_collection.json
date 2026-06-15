@@ -1,0 +1,1622 @@
+{
+  "item": [
+    {
+      "id": "1f71326d-1580-4062-948f-e34a45a2278d",
+      "name": "Application",
+      "description": {
+        "content": "As-applied agrochemical data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f642f3d4-5e3a-476a-9e29-a40c8909ee2d",
+          "name": "List as-applied agrochemical layers",
+          "request": {
+            "name": "List as-applied agrochemical layers",
+            "description": {
+              "content": "Returns all as-applied layers (fertilizer, pesticide, and herbicide application records).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "layers",
+                "asApplied"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fieldId",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "occurredAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de35fe48-9d0b-4d38-9713-092953407b8e",
+              "name": "List of as-applied layers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asApplied"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fieldId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "occurredAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"fieldIds\": [\n        \"45db70b6-9b15-57c9-1e2a-ce542223a44a\",\n        \"58164219-e324-f709-5123-6c67651142db\"\n      ],\n      \"occurredOn\": \"1975-06-29T03:35:36.376Z\",\n      \"updatedAt\": \"1992-09-29T18:46:47.382Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"fieldIds\": [\n        \"a3088cbf-da30-a183-4060-41511d809147\",\n        \"f28f2c6d-7867-d641-1a81-6c1742f9b8db\"\n      ],\n      \"occurredOn\": \"2009-06-12T06:33:49.794Z\",\n      \"updatedAt\": \"2019-03-31T13:05:38.064Z\"\n    }\n  ],\n  \"total\": 4841,\n  \"hasMore\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "abe80708-2536-4be8-8417-153a9adc32a4",
+      "name": "Fields",
+      "description": {
+        "content": "Agricultural field boundaries and metadata",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ea0481a3-eb9a-4cad-8b82-f71901072c9d",
+          "name": "List all fields",
+          "request": {
+            "name": "List all fields",
+            "description": {
+              "content": "Returns a paginated list of fields belonging to the authenticated user. Fields include boundaries stored as GeoJSON and associated metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "updatedAfter",
+                  "value": "<dateTime>",
+                  "description": "Return only fields updated after this ISO 8601 timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc39a202-81cb-4460-8823-59c532fa585c",
+              "name": "Paginated list of fields",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "updatedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"42a9aa69-5ea5-0d7c-5438-0b27cd1b311c\",\n      \"name\": \"string\",\n      \"updatedAt\": \"2015-04-05T08:23:22.354Z\",\n      \"acreage\": 5337.352487201029\n    },\n    {\n      \"id\": \"3cea0b6b-77df-e1e9-1b45-c81840fdf709\",\n      \"name\": \"string\",\n      \"updatedAt\": \"1994-10-30T10:53:49.742Z\",\n      \"acreage\": 4938.189698808849\n    }\n  ],\n  \"total\": 6675,\n  \"hasMore\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5318ef8c-f302-4f88-b577-c88fcc4adfce",
+              "name": "Missing or invalid access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "updatedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_description\": \"string\",\n  \"statusCode\": 8836\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c4c3b88-5657-4905-94b6-fe53678887a7",
+          "name": "Get a specific field",
+          "request": {
+            "name": "Get a specific field",
+            "description": {
+              "content": "Returns detailed information for a single field including its GeoJSON boundary.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "fields",
+                ":fieldId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "fieldId",
+                  "description": "(Required) Unique field identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "874dd8ca-fe17-4072-9c72-cd3c7562f154",
+              "name": "Field details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "fields",
+                    ":fieldId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "fieldId",
+                      "description": "(Required) Unique field identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"5c19e347-609e-20ae-7ff2-956951232927\",\n  \"name\": \"string\",\n  \"updatedAt\": \"1965-02-21T03:59:22.533Z\",\n  \"acreage\": 2289.0500930887847,\n  \"growerName\": \"string\",\n  \"farmName\": \"string\",\n  \"boundary\": {\n    \"type\": \"Feature\",\n    \"geometry\": {\n      \"type\": \"Polygon\"\n    },\n    \"properties\": {}\n  },\n  \"centroid\": {\n    \"latitude\": 8923.596530173258,\n    \"longitude\": 2585.434783429004\n  },\n  \"createdAt\": \"1958-11-28T15:54:23.338Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e22d60a-10a5-457b-b177-fcc6ed83cc1f",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "fields",
+                    ":fieldId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "fieldId",
+                      "description": "(Required) Unique field identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_description\": \"string\",\n  \"statusCode\": 8836\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98f7d88c-1b57-4c4a-a310-8aaf927dc187",
+          "name": "Get field boundary as GeoJSON",
+          "request": {
+            "name": "Get field boundary as GeoJSON",
+            "description": {
+              "content": "Returns the field boundary polygon as a GeoJSON Feature object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "fields",
+                ":fieldId",
+                "boundary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "fieldId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "764ad740-2355-4cce-90ed-e63ec39faf52",
+              "name": "Field boundary GeoJSON",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "fields",
+                    ":fieldId",
+                    "boundary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "fieldId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"MultiPolygon\"\n  },\n  \"properties\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b20fb2e0-aa72-4b4d-9484-ce685d80b5eb",
+          "name": "Obtain OAuth2 access token",
+          "request": {
+            "name": "Obtain OAuth2 access token",
+            "description": {
+              "content": "Exchange an authorization code or refresh token for an OAuth2 access token. Supports authorization_code and refresh_token grant types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "Authorization code (for authorization_code grant)"
+                },
+                {
+                  "disabled": false,
+                  "key": "refresh_token",
+                  "value": "<string>",
+                  "description": "Refresh token (for refresh_token grant)"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<uri>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "87af7ff4-6992-401a-bcaa-2459bb13ce78",
+              "name": "Access token response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorization code (for authorization_code grant)",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Refresh token (for refresh_token grant)",
+                        "type": "text/plain"
+                      },
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"refresh_token\": \"string\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 8033,\n  \"scope\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02b1208d-f6a1-48aa-9443-98dad1d4213c",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorization code (for authorization_code grant)",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Refresh token (for refresh_token grant)",
+                        "type": "text/plain"
+                      },
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_description\": \"string\",\n  \"statusCode\": 8836\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "daead331-a368-4a9e-b875-eb297f6de9d5",
+      "name": "Harvest",
+      "description": {
+        "content": "As-harvested yield data and maps",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "64eabf77-4042-452c-bba7-a22050c0d80c",
+          "name": "List as-harvested yield layers",
+          "request": {
+            "name": "List as-harvested yield layers",
+            "description": {
+              "content": "Returns all as-harvested layers (yield data) accessible to the authenticated user. Supports filtering by field, crop type, and date range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "layers",
+                "asHarvested"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fieldId",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "occurredBefore",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "occurredAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3def060-0b66-402b-9f5a-53d3c0b44632",
+              "name": "List of as-harvested layers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asHarvested"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fieldId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "occurredBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "occurredAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"fieldIds\": [\n        \"45db70b6-9b15-57c9-1e2a-ce542223a44a\",\n        \"58164219-e324-f709-5123-6c67651142db\"\n      ],\n      \"occurredOn\": \"1975-06-29T03:35:36.376Z\",\n      \"updatedAt\": \"1992-09-29T18:46:47.382Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"fieldIds\": [\n        \"a3088cbf-da30-a183-4060-41511d809147\",\n        \"f28f2c6d-7867-d641-1a81-6c1742f9b8db\"\n      ],\n      \"occurredOn\": \"2009-06-12T06:33:49.794Z\",\n      \"updatedAt\": \"2019-03-31T13:05:38.064Z\"\n    }\n  ],\n  \"total\": 4841,\n  \"hasMore\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef6efb22-09ca-44cb-a457-9c535af12a30",
+          "name": "Get a specific as-harvested layer",
+          "request": {
+            "name": "Get a specific as-harvested layer",
+            "description": {
+              "content": "Returns detailed metadata for a single as-harvested yield layer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "layers",
+                "asHarvested",
+                ":layerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "135e5ed6-8a0f-4d66-a601-a0a1d53fd6bc",
+              "name": "As-harvested layer details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asHarvested",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"fieldIds\": [\n    \"009ed39d-3aa5-1b48-8681-382fb447d46b\",\n    \"dd09b8f9-960b-6569-f12a-a17f90c4e7c3\"\n  ],\n  \"occurredOn\": \"1984-08-20T19:29:48.375Z\",\n  \"updatedAt\": \"1952-02-05T08:31:07.564Z\",\n  \"crop\": \"CORN\",\n  \"yieldAverage\": 5441.915579846393,\n  \"moistureAverage\": 6091.958397998995,\n  \"area\": 9699.494536837841\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3e45af9e-a80f-4ba5-b43c-6a18ff11b8c6",
+      "name": "Planting",
+      "description": {
+        "content": "As-planted activity data and maps",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "506d006d-5575-4adb-8f48-3b36b2aebc2f",
+          "name": "List as-planted activity layers",
+          "request": {
+            "name": "List as-planted activity layers",
+            "description": {
+              "content": "Returns all as-planted layers (planting activity records) accessible to the authenticated user. Each layer is associated with one or more field IDs and includes crop and seed variety data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "layers",
+                "asPlanted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fieldId",
+                  "value": "<uuid>",
+                  "description": "Filter layers for a specific field"
+                },
+                {
+                  "disabled": false,
+                  "key": "occurredBefore",
+                  "value": "<dateTime>",
+                  "description": "Return layers for activities that occurred before this date (ISO 8601)"
+                },
+                {
+                  "disabled": false,
+                  "key": "occurredAfter",
+                  "value": "<dateTime>",
+                  "description": "Return layers for activities that occurred after this date (ISO 8601)"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAfter",
+                  "value": "<dateTime>",
+                  "description": "Return only layers updated after this timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24ff02f2-9676-4cbb-8dc8-4a0e6107f9f3",
+              "name": "List of as-planted layers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asPlanted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fieldId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "occurredBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "occurredAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"fieldIds\": [\n        \"45db70b6-9b15-57c9-1e2a-ce542223a44a\",\n        \"58164219-e324-f709-5123-6c67651142db\"\n      ],\n      \"occurredOn\": \"1975-06-29T03:35:36.376Z\",\n      \"updatedAt\": \"1992-09-29T18:46:47.382Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"fieldIds\": [\n        \"a3088cbf-da30-a183-4060-41511d809147\",\n        \"f28f2c6d-7867-d641-1a81-6c1742f9b8db\"\n      ],\n      \"occurredOn\": \"2009-06-12T06:33:49.794Z\",\n      \"updatedAt\": \"2019-03-31T13:05:38.064Z\"\n    }\n  ],\n  \"total\": 4841,\n  \"hasMore\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "712bd03f-0cb1-4c51-b487-301f9b62e967",
+          "name": "Get a specific as-planted layer",
+          "request": {
+            "name": "Get a specific as-planted layer",
+            "description": {
+              "content": "Returns detailed metadata for a single as-planted activity layer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "layers",
+                "asPlanted",
+                ":layerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6fa7ddb4-00bf-4d18-a8cf-e140a2f75b75",
+              "name": "As-planted layer details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asPlanted",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"fieldIds\": [\n    \"46cb148a-e4ca-fecc-f296-0ee1e905f9c8\",\n    \"37b714cb-bf9f-2977-9add-7012756b28c8\"\n  ],\n  \"occurredOn\": \"1966-02-07T17:38:39.828Z\",\n  \"updatedAt\": \"1997-03-23T21:13:21.513Z\",\n  \"crop\": \"CORN\",\n  \"seedVariety\": \"string\",\n  \"seedingRate\": 605.6277670081123,\n  \"area\": 1147.390591847427\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4be561f4-75c0-4c80-8990-921ec5337e85",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asPlanted",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_description\": \"string\",\n  \"statusCode\": 8836\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c8a6f9b-e0b4-4e64-9898-06349960979c",
+          "name": "Download as-planted layer spatial data",
+          "request": {
+            "name": "Download as-planted layer spatial data",
+            "description": {
+              "content": "Returns the spatial raster or vector data for an as-planted layer. Response is a download URL or binary content for the planting map.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "layers",
+                "asPlanted",
+                ":layerId",
+                "contents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b7d7d65-efac-4ad9-b139-e986916cb30f",
+              "name": "Layer spatial content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asPlanted",
+                    ":layerId",
+                    "contents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "19c92f3b-23dd-49a1-a367-20ab58462150",
+      "name": "Soil Sampling",
+      "description": {
+        "content": "Soil sample results and layers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e8ecfbd5-15fa-47f8-8fcc-b84defb22e40",
+          "name": "List soil sampling results",
+          "request": {
+            "name": "List soil sampling results",
+            "description": {
+              "content": "Returns soil sampling results including nutrient analysis and pH measurements for fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "soilSampling",
+                "results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fieldId",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAfter",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7cac676a-3bb0-423e-b02b-fd940a4fdbd4",
+              "name": "List of soil sampling results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "soilSampling",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fieldId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"fieldId\": \"6606e10a-a82e-a8e3-914b-0ea9d75eba73\",\n      \"sampledOn\": \"2003-11-05\",\n      \"results\": {\n        \"pH\": 4999.975389721735,\n        \"organicMatter\": 7054.603499649515,\n        \"phosphorus\": 9483.133471267574,\n        \"potassium\": 8712.561019481951,\n        \"cationExchangeCapacity\": 7267.03826283809\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"fieldId\": \"86fe4a62-d3f2-3313-5af6-187f77c9d4ea\",\n      \"sampledOn\": \"1962-01-02\",\n      \"results\": {\n        \"pH\": 5325.825889004279,\n        \"organicMatter\": 3666.686788677944,\n        \"phosphorus\": 715.6209582997463,\n        \"potassium\": 4194.899263900223,\n        \"cationExchangeCapacity\": 7468.32351717118\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.climate.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "fields:read layers:read layers:write soilsampling:read imagery:read"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.climate.com/api/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.climate.com/api/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "797619f2-919b-47db-a708-0d4845eb44e5",
+    "name": "Climate FieldView Platform API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations.\n\nContact Support:\n Name: FieldView Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
