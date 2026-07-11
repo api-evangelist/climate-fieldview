@@ -60,6 +60,10 @@ apis:
       access tokens passed in the Authorization header. The token endpoint is https://api.climate.com/api/oauth/token;
       data endpoints live under https://api.climate.com/api/v4 and return JSON with paginated list responses.
 common:
+  - type: DomainSecurity
+    url: security/climate-fieldview-domain-security.yml
+  - type: Authentication
+    url: authentication/climate-fieldview-authentication.yml
   - type: OAuthScopes
     url: scopes/climate-fieldview-scopes.yml
   - type: LinkedIn
