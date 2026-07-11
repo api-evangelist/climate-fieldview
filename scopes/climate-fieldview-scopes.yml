@@ -1,0 +1,42 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/climate-fieldview-platform-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/climate-fieldview-platform-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.climate.com/api/oauth/authorize
+    tokenUrl: https://api.climate.com/api/oauth/token
+  description: OAuth 2.0 authorization for Climate FieldView API
+scopes:
+- scope: fields:read
+  description: Read field boundaries and metadata
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/climate-fieldview-platform-openapi.yml
+- scope: imagery:read
+  description: Read satellite imagery layers
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/climate-fieldview-platform-openapi.yml
+- scope: layers:read
+  description: Read activity layer data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/climate-fieldview-platform-openapi.yml
+- scope: layers:write
+  description: Upload activity layer data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/climate-fieldview-platform-openapi.yml
+- scope: soilsampling:read
+  description: Read soil sampling results
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/climate-fieldview-platform-openapi.yml

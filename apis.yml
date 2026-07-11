@@ -60,6 +60,8 @@ apis:
       access tokens passed in the Authorization header. The token endpoint is https://api.climate.com/api/oauth/token;
       data endpoints live under https://api.climate.com/api/v4 and return JSON with paginated list responses.
 common:
+  - type: OAuthScopes
+    url: scopes/climate-fieldview-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/climate-llc
   - type: Website
@@ -88,6 +90,8 @@ common:
     url: json-ld/climate-fieldview-context.jsonld
   - type: Spectral
     url: rules/climate-fieldview-rules.yml
+  - url: https://climate.com/en-us/resources/blog.html
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
