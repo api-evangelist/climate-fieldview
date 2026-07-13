@@ -1,0 +1,14 @@
+{
+  "repo": "climate-fieldview",
+  "feeds": [
+    {
+      "source": "https://climate.com/en-us/resources/blog.html",
+      "feed_url": "https://climate.com/en-us/resources/blog.html",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 5
+}
