@@ -1,0 +1,273 @@
+openapi: 3.1.0
+info:
+  title: Climate FieldView Platform Application Fields API
+  description: Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations.
+  version: 4.0.0
+  contact:
+    name: FieldView Developer Support
+    url: https://dev.fieldview.com/
+  license:
+    name: Climate Corporation Terms of Service
+    url: https://climate.com/en-us/legal/terms-of-service.html
+servers:
+- url: https://api.climate.com/api
+  description: Climate FieldView Production API
+security:
+- oauth2: []
+tags:
+- name: Fields
+  description: Agricultural field boundaries and metadata
+paths:
+  /v4/fields:
+    get:
+      operationId: listFields
+      summary: List all fields
+      description: Returns a paginated list of fields belonging to the authenticated user. Fields include boundaries stored as GeoJSON and associated metadata.
+      tags:
+      - Fields
+      parameters:
+      - name: updatedAfter
+        in: query
+        description: Return only fields updated after this ISO 8601 timestamp
+        schema:
+          type: string
+          format: date-time
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 100
+          maximum: 500
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          default: 0
+      responses:
+        '200':
+          description: Paginated list of fields
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /v4/fields/{fieldId}:
+    get:
+      operationId: getField
+      summary: Get a specific field
+      description: Returns detailed information for a single field including its GeoJSON boundary.
+      tags:
+      - Fields
+      parameters:
+      - name: fieldId
+        in: path
+        required: true
+        description: Unique field identifier
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Field details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Field'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v4/fields/{fieldId}/boundary:
+    get:
+      operationId: getFieldBoundary
+      summary: Get field boundary as GeoJSON
+      description: Returns the field boundary polygon as a GeoJSON Feature object.
+      tags:
+      - Fields
+      parameters:
+      - name: fieldId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Field boundary GeoJSON
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoJsonFeature'
+  /oauth/token:
+    post:
+      operationId: getAccessToken
+      summary: Obtain OAuth2 access token
+      description: Exchange an authorization code or refresh token for an OAuth2 access token. Supports authorization_code and refresh_token grant types.
+      tags:
+      - Fields
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - authorization_code
+                  - refresh_token
+                code:
+                  type: string
+                  description: Authorization code (for authorization_code grant)
+                refresh_token:
+                  type: string
+                  description: Refresh token (for refresh_token grant)
+                redirect_uri:
+                  type: string
+                  format: uri
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+      responses:
+        '200':
+          description: Access token response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+components:
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        refresh_token:
+          type: string
+        token_type:
+          type: string
+          enum:
+          - Bearer
+        expires_in:
+          type: integer
+          description: Token lifetime in seconds
+        scope:
+          type: string
+    FieldSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+        acreage:
+          type: number
+          format: double
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        error_description:
+          type: string
+        statusCode:
+          type: integer
+    GeoJsonFeature:
+      type: object
+      required:
+      - type
+      - geometry
+      properties:
+        type:
+          type: string
+          enum:
+          - Feature
+        geometry:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+              - Polygon
+              - MultiPolygon
+            coordinates:
+              type: array
+        properties:
+          type: object
+    Field:
+      allOf:
+      - $ref: '#/components/schemas/FieldSummary'
+      - type: object
+        properties:
+          growerName:
+            type: string
+          farmName:
+            type: string
+          boundary:
+            $ref: '#/components/schemas/GeoJsonFeature'
+          centroid:
+            type: object
+            properties:
+              latitude:
+                type: number
+              longitude:
+                type: number
+          createdAt:
+            type: string
+            format: date-time
+    FieldList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldSummary'
+        total:
+          type: integer
+        hasMore:
+          type: boolean
+  responses:
+    Unauthorized:
+      description: Missing or invalid access token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization for Climate FieldView API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.climate.com/api/oauth/authorize
+          tokenUrl: https://api.climate.com/api/oauth/token
+          scopes:
+            fields:read: Read field boundaries and metadata
+            layers:read: Read activity layer data
+            layers:write: Upload activity layer data
+            soilsampling:read: Read soil sampling results
+            imagery:read: Read satellite imagery layers

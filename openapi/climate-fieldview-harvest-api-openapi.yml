@@ -1,0 +1,143 @@
+openapi: 3.1.0
+info:
+  title: Climate FieldView Platform Application Harvest API
+  description: Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations.
+  version: 4.0.0
+  contact:
+    name: FieldView Developer Support
+    url: https://dev.fieldview.com/
+  license:
+    name: Climate Corporation Terms of Service
+    url: https://climate.com/en-us/legal/terms-of-service.html
+servers:
+- url: https://api.climate.com/api
+  description: Climate FieldView Production API
+security:
+- oauth2: []
+tags:
+- name: Harvest
+  description: As-harvested yield data and maps
+paths:
+  /v4/layers/asHarvested:
+    get:
+      operationId: listAsHarvestedLayers
+      summary: List as-harvested yield layers
+      description: Returns all as-harvested layers (yield data) accessible to the authenticated user. Supports filtering by field, crop type, and date range.
+      tags:
+      - Harvest
+      parameters:
+      - name: fieldId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: occurredBefore
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: occurredAfter
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: updatedAfter
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 50
+      responses:
+        '200':
+          description: List of as-harvested layers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LayerList'
+  /v4/layers/asHarvested/{layerId}:
+    get:
+      operationId: getAsHarvestedLayer
+      summary: Get a specific as-harvested layer
+      description: Returns detailed metadata for a single as-harvested yield layer.
+      tags:
+      - Harvest
+      parameters:
+      - name: layerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: As-harvested layer details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HarvestLayer'
+components:
+  schemas:
+    LayerList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LayerSummary'
+        total:
+          type: integer
+        hasMore:
+          type: boolean
+    LayerSummary:
+      type: object
+      properties:
+        id:
+          type: string
+        fieldIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        occurredOn:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    HarvestLayer:
+      allOf:
+      - $ref: '#/components/schemas/LayerSummary'
+      - type: object
+        properties:
+          crop:
+            type: string
+            examples:
+            - CORN
+            - SOYBEAN
+            - WHEAT
+          yieldAverage:
+            type: number
+            description: Average yield (bushels per acre)
+          moistureAverage:
+            type: number
+            description: Average grain moisture percentage
+          area:
+            type: number
+            description: Harvested area in acres
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization for Climate FieldView API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.climate.com/api/oauth/authorize
+          tokenUrl: https://api.climate.com/api/oauth/token
+          scopes:
+            fields:read: Read field boundaries and metadata
+            layers:read: Read activity layer data
+            layers:write: Upload activity layer data
+            soilsampling:read: Read soil sampling results
+            imagery:read: Read satellite imagery layers

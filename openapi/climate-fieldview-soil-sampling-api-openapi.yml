@@ -1,0 +1,92 @@
+openapi: 3.1.0
+info:
+  title: Climate FieldView Platform Application Soil Sampling API
+  description: Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations.
+  version: 4.0.0
+  contact:
+    name: FieldView Developer Support
+    url: https://dev.fieldview.com/
+  license:
+    name: Climate Corporation Terms of Service
+    url: https://climate.com/en-us/legal/terms-of-service.html
+servers:
+- url: https://api.climate.com/api
+  description: Climate FieldView Production API
+security:
+- oauth2: []
+tags:
+- name: Soil Sampling
+  description: Soil sample results and layers
+paths:
+  /v4/soilSampling/results:
+    get:
+      operationId: listSoilSamplingResults
+      summary: List soil sampling results
+      description: Returns soil sampling results including nutrient analysis and pH measurements for fields.
+      tags:
+      - Soil Sampling
+      parameters:
+      - name: fieldId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: updatedAfter
+        in: query
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: List of soil sampling results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SoilSampleList'
+components:
+  schemas:
+    SoilSampleList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SoilSample'
+    SoilSample:
+      type: object
+      properties:
+        id:
+          type: string
+        fieldId:
+          type: string
+          format: uuid
+        sampledOn:
+          type: string
+          format: date
+        results:
+          type: object
+          properties:
+            pH:
+              type: number
+            organicMatter:
+              type: number
+            phosphorus:
+              type: number
+            potassium:
+              type: number
+            cationExchangeCapacity:
+              type: number
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization for Climate FieldView API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.climate.com/api/oauth/authorize
+          tokenUrl: https://api.climate.com/api/oauth/token
+          scopes:
+            fields:read: Read field boundaries and metadata
+            layers:read: Read activity layer data
+            layers:write: Upload activity layer data
+            soilsampling:read: Read soil sampling results
+            imagery:read: Read satellite imagery layers

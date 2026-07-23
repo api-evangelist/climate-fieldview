@@ -1,0 +1,185 @@
+openapi: 3.1.0
+info:
+  title: Climate FieldView Platform Application Planting API
+  description: Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations.
+  version: 4.0.0
+  contact:
+    name: FieldView Developer Support
+    url: https://dev.fieldview.com/
+  license:
+    name: Climate Corporation Terms of Service
+    url: https://climate.com/en-us/legal/terms-of-service.html
+servers:
+- url: https://api.climate.com/api
+  description: Climate FieldView Production API
+security:
+- oauth2: []
+tags:
+- name: Planting
+  description: As-planted activity data and maps
+paths:
+  /v4/layers/asPlanted:
+    get:
+      operationId: listAsPlantedLayers
+      summary: List as-planted activity layers
+      description: Returns all as-planted layers (planting activity records) accessible to the authenticated user. Each layer is associated with one or more field IDs and includes crop and seed variety data.
+      tags:
+      - Planting
+      parameters:
+      - name: fieldId
+        in: query
+        description: Filter layers for a specific field
+        schema:
+          type: string
+          format: uuid
+      - name: occurredBefore
+        in: query
+        description: Return layers for activities that occurred before this date (ISO 8601)
+        schema:
+          type: string
+          format: date-time
+      - name: occurredAfter
+        in: query
+        description: Return layers for activities that occurred after this date (ISO 8601)
+        schema:
+          type: string
+          format: date-time
+      - name: updatedAfter
+        in: query
+        description: Return only layers updated after this timestamp
+        schema:
+          type: string
+          format: date-time
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 50
+      responses:
+        '200':
+          description: List of as-planted layers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LayerList'
+  /v4/layers/asPlanted/{layerId}:
+    get:
+      operationId: getAsPlantedLayer
+      summary: Get a specific as-planted layer
+      description: Returns detailed metadata for a single as-planted activity layer.
+      tags:
+      - Planting
+      parameters:
+      - name: layerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: As-planted layer details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlantingLayer'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v4/layers/asPlanted/{layerId}/contents:
+    get:
+      operationId: getAsPlantedLayerContents
+      summary: Download as-planted layer spatial data
+      description: Returns the spatial raster or vector data for an as-planted layer. Response is a download URL or binary content for the planting map.
+      tags:
+      - Planting
+      parameters:
+      - name: layerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Layer spatial content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+components:
+  schemas:
+    PlantingLayer:
+      allOf:
+      - $ref: '#/components/schemas/LayerSummary'
+      - type: object
+        properties:
+          crop:
+            type: string
+            examples:
+            - CORN
+            - SOYBEAN
+            - WHEAT
+          seedVariety:
+            type: string
+          seedingRate:
+            type: number
+            description: Seeds per acre
+          area:
+            type: number
+            description: Planted area in acres
+    LayerList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LayerSummary'
+        total:
+          type: integer
+        hasMore:
+          type: boolean
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        error_description:
+          type: string
+        statusCode:
+          type: integer
+    LayerSummary:
+      type: object
+      properties:
+        id:
+          type: string
+        fieldIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        occurredOn:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization for Climate FieldView API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.climate.com/api/oauth/authorize
+          tokenUrl: https://api.climate.com/api/oauth/token
+          scopes:
+            fields:read: Read field boundaries and metadata
+            layers:read: Read activity layer data
+            layers:write: Upload activity layer data
+            soilsampling:read: Read soil sampling results
+            imagery:read: Read satellite imagery layers
