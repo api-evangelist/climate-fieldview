@@ -1,0 +1,455 @@
+{
+  "info": {
+    "_postman_id": "de55740e-d264-4ec7-bce2-1030bb2887f0",
+    "name": "Climate FieldView Platform Application Planting API",
+    "description": "Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations.\n\nContact Support:\n Name: FieldView Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:22:19.000Z",
+    "updatedAt": "2026-07-28T01:22:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-de55740e-d264-4ec7-bce2-1030bb2887f0"
+  },
+  "item": [
+    {
+      "name": "v4",
+      "item": [
+        {
+          "name": "layers",
+          "item": [
+            {
+              "name": "asPlanted",
+              "item": [
+                {
+                  "name": "{layerId}",
+                  "item": [
+                    {
+                      "name": "contents",
+                      "item": [
+                        {
+                          "name": "Download as-planted layer spatial data",
+                          "id": "bd4273ef-64f8-46c6-bfc7-5206772d3792",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/octet-stream"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v4/layers/asPlanted/:layerId/contents",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v4",
+                                "layers",
+                                "asPlanted",
+                                ":layerId",
+                                "contents"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "bba84dd1-8fc0-47ee-9e7f-8ea65cab5673",
+                                  "key": "layerId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns the spatial raster or vector data for an as-planted layer. Response is a download URL or binary content for the planting map."
+                          },
+                          "response": [
+                            {
+                              "id": "182e1954-85a6-41af-9186-8f40e10ab9de",
+                              "name": "Layer spatial content",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/octet-stream"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v4/layers/asPlanted/:layerId/contents",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v4",
+                                    "layers",
+                                    "asPlanted",
+                                    ":layerId",
+                                    "contents"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "layerId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/octet-stream"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<binary>",
+                              "createdAt": "2026-07-28T01:22:19.000Z",
+                              "updatedAt": "2026-07-28T01:22:19.000Z",
+                              "uid": "35240-182e1954-85a6-41af-9186-8f40e10ab9de"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:22:19.000Z",
+                          "updatedAt": "2026-07-28T01:22:19.000Z",
+                          "uid": "35240-bd4273ef-64f8-46c6-bfc7-5206772d3792"
+                        }
+                      ],
+                      "id": "6452c8b7-01b6-4000-b933-194d5dda56c1",
+                      "createdAt": "2026-07-28T01:22:19.000Z",
+                      "updatedAt": "2026-07-28T01:22:19.000Z",
+                      "uid": "35240-6452c8b7-01b6-4000-b933-194d5dda56c1"
+                    },
+                    {
+                      "name": "Get a specific as-planted layer",
+                      "id": "ca29a6e1-9dda-459b-93e0-b60553523a23",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v4/layers/asPlanted/:layerId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v4",
+                            "layers",
+                            "asPlanted",
+                            ":layerId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "811567d2-9612-4db5-87d1-396a91263af4",
+                              "key": "layerId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns detailed metadata for a single as-planted activity layer."
+                      },
+                      "response": [
+                        {
+                          "id": "292847fc-47cf-499a-8fb5-ea2d3b0c682a",
+                          "name": "As-planted layer details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v4/layers/asPlanted/:layerId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v4",
+                                "layers",
+                                "asPlanted",
+                                ":layerId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "layerId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"fieldIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"occurredOn\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"crop\": \"<string>\",\n  \"seedVariety\": \"<string>\",\n  \"seedingRate\": \"<number>\",\n  \"area\": \"<number>\"\n}",
+                          "createdAt": "2026-07-28T01:22:19.000Z",
+                          "updatedAt": "2026-07-28T01:22:19.000Z",
+                          "uid": "35240-292847fc-47cf-499a-8fb5-ea2d3b0c682a"
+                        },
+                        {
+                          "id": "0a9a1052-eda2-4694-a189-2cb5eb6ca528",
+                          "name": "Resource not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v4/layers/asPlanted/:layerId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v4",
+                                "layers",
+                                "asPlanted",
+                                ":layerId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "layerId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"statusCode\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T01:22:19.000Z",
+                          "updatedAt": "2026-07-28T01:22:19.000Z",
+                          "uid": "35240-0a9a1052-eda2-4694-a189-2cb5eb6ca528"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:22:19.000Z",
+                      "updatedAt": "2026-07-28T01:22:19.000Z",
+                      "uid": "35240-ca29a6e1-9dda-459b-93e0-b60553523a23"
+                    }
+                  ],
+                  "id": "e5f3e7ad-95d8-46ad-aa9c-97d403e9abea",
+                  "createdAt": "2026-07-28T01:22:19.000Z",
+                  "updatedAt": "2026-07-28T01:22:19.000Z",
+                  "uid": "35240-e5f3e7ad-95d8-46ad-aa9c-97d403e9abea"
+                },
+                {
+                  "name": "List as-planted activity layers",
+                  "id": "cdbe239a-2fe0-4e22-9d1f-17c81f0239bf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v4/layers/asPlanted?fieldId=<uuid>&occurredBefore=<dateTime>&occurredAfter=<dateTime>&updatedAfter=<dateTime>&limit=50",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v4",
+                        "layers",
+                        "asPlanted"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter layers for a specific field",
+                          "key": "fieldId",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Return layers for activities that occurred before this date (ISO 8601)",
+                          "key": "occurredBefore",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Return layers for activities that occurred after this date (ISO 8601)",
+                          "key": "occurredAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Return only layers updated after this timestamp",
+                          "key": "updatedAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "50"
+                        }
+                      ]
+                    },
+                    "description": "Returns all as-planted layers (planting activity records) accessible to the authenticated user. Each layer is associated with one or more field IDs and includes crop and seed variety data."
+                  },
+                  "response": [
+                    {
+                      "id": "c228ce48-7a15-4609-ab3b-6a15b4d803cb",
+                      "name": "List of as-planted layers",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v4/layers/asPlanted?fieldId=<uuid>&occurredBefore=<dateTime>&occurredAfter=<dateTime>&updatedAfter=<dateTime>&limit=50",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v4",
+                            "layers",
+                            "asPlanted"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter layers for a specific field",
+                              "key": "fieldId",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Return layers for activities that occurred before this date (ISO 8601)",
+                              "key": "occurredBefore",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Return layers for activities that occurred after this date (ISO 8601)",
+                              "key": "occurredAfter",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Return only layers updated after this timestamp",
+                              "key": "updatedAfter",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "50"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"fieldIds\": [\n        \"<uuid>\",\n        \"<uuid>\"\n      ],\n      \"occurredOn\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"fieldIds\": [\n        \"<uuid>\",\n        \"<uuid>\"\n      ],\n      \"occurredOn\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"total\": \"<integer>\",\n  \"hasMore\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T01:22:19.000Z",
+                      "updatedAt": "2026-07-28T01:22:19.000Z",
+                      "uid": "35240-c228ce48-7a15-4609-ab3b-6a15b4d803cb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:22:19.000Z",
+                  "updatedAt": "2026-07-28T01:22:19.000Z",
+                  "uid": "35240-cdbe239a-2fe0-4e22-9d1f-17c81f0239bf"
+                }
+              ],
+              "id": "08e5b40e-50e1-446f-8791-d16ec10a6caa",
+              "createdAt": "2026-07-28T01:22:19.000Z",
+              "updatedAt": "2026-07-28T01:22:19.000Z",
+              "uid": "35240-08e5b40e-50e1-446f-8791-d16ec10a6caa"
+            }
+          ],
+          "id": "2102b692-c8c4-491a-8ba0-bf88cefd4f4e",
+          "createdAt": "2026-07-28T01:22:19.000Z",
+          "updatedAt": "2026-07-28T01:22:19.000Z",
+          "uid": "35240-2102b692-c8c4-491a-8ba0-bf88cefd4f4e"
+        }
+      ],
+      "id": "370ea1c7-669c-42b3-9cee-9f5b28a0ee54",
+      "createdAt": "2026-07-28T01:22:19.000Z",
+      "updatedAt": "2026-07-28T01:22:19.000Z",
+      "uid": "35240-370ea1c7-669c-42b3-9cee-9f5b28a0ee54"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "fields:read layers:read layers:write soilsampling:read imagery:read",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.climate.com/api/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.climate.com/api/oauth/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.climate.com/api"
+    }
+  ]
+}

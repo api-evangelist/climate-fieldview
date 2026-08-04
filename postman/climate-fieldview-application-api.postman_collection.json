@@ -1,0 +1,177 @@
+{
+  "info": {
+    "_postman_id": "bf717237-dccd-4395-b143-59d0cae29df6",
+    "name": "Climate FieldView Platform Application API",
+    "description": "Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations.\n\nContact Support:\n Name: FieldView Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:22:00.000Z",
+    "updatedAt": "2026-07-28T01:22:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bf717237-dccd-4395-b143-59d0cae29df6"
+  },
+  "item": [
+    {
+      "name": "v4",
+      "item": [
+        {
+          "name": "layers",
+          "item": [
+            {
+              "name": "asApplied",
+              "item": [
+                {
+                  "name": "List as-applied agrochemical layers",
+                  "id": "e500b347-dc78-4fa0-be70-bb67a18f35ab",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v4/layers/asApplied?fieldId=<uuid>&occurredAfter=<dateTime>&limit=50",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v4",
+                        "layers",
+                        "asApplied"
+                      ],
+                      "query": [
+                        {
+                          "key": "fieldId",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "occurredAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "50"
+                        }
+                      ]
+                    },
+                    "description": "Returns all as-applied layers (fertilizer, pesticide, and herbicide application records)."
+                  },
+                  "response": [
+                    {
+                      "id": "42de6b10-f0d2-418b-b430-6b6ba79f3422",
+                      "name": "List of as-applied layers",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v4/layers/asApplied?fieldId=<uuid>&occurredAfter=<dateTime>&limit=50",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v4",
+                            "layers",
+                            "asApplied"
+                          ],
+                          "query": [
+                            {
+                              "key": "fieldId",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "occurredAfter",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "50"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"fieldIds\": [\n        \"<uuid>\",\n        \"<uuid>\"\n      ],\n      \"occurredOn\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"fieldIds\": [\n        \"<uuid>\",\n        \"<uuid>\"\n      ],\n      \"occurredOn\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"total\": \"<integer>\",\n  \"hasMore\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T01:22:01.000Z",
+                      "updatedAt": "2026-07-28T01:22:01.000Z",
+                      "uid": "35240-42de6b10-f0d2-418b-b430-6b6ba79f3422"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:22:01.000Z",
+                  "updatedAt": "2026-07-28T01:22:01.000Z",
+                  "uid": "35240-e500b347-dc78-4fa0-be70-bb67a18f35ab"
+                }
+              ],
+              "id": "0b10817c-fd78-42f7-bbae-b4098655fe57",
+              "createdAt": "2026-07-28T01:22:01.000Z",
+              "updatedAt": "2026-07-28T01:22:01.000Z",
+              "uid": "35240-0b10817c-fd78-42f7-bbae-b4098655fe57"
+            }
+          ],
+          "id": "b54ce8d0-85c5-437f-a168-e356ccf157b4",
+          "createdAt": "2026-07-28T01:22:01.000Z",
+          "updatedAt": "2026-07-28T01:22:01.000Z",
+          "uid": "35240-b54ce8d0-85c5-437f-a168-e356ccf157b4"
+        }
+      ],
+      "id": "15cafad9-5a1d-41ad-a2f5-d9de26ca1bbe",
+      "createdAt": "2026-07-28T01:22:01.000Z",
+      "updatedAt": "2026-07-28T01:22:01.000Z",
+      "uid": "35240-15cafad9-5a1d-41ad-a2f5-d9de26ca1bbe"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "fields:read layers:read layers:write soilsampling:read imagery:read",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.climate.com/api/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.climate.com/api/oauth/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.climate.com/api"
+    }
+  ]
+}

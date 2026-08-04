@@ -1,0 +1,725 @@
+{
+  "info": {
+    "_postman_id": "cd2d15d2-2d1b-4e2d-a277-c267f01312ed",
+    "name": "Climate FieldView Platform Application Fields API",
+    "description": "Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations.\n\nContact Support:\n Name: FieldView Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:22:17.000Z",
+    "updatedAt": "2026-07-28T01:22:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cd2d15d2-2d1b-4e2d-a277-c267f01312ed"
+  },
+  "item": [
+    {
+      "name": "v4",
+      "item": [
+        {
+          "name": "fields",
+          "item": [
+            {
+              "name": "{fieldId}",
+              "item": [
+                {
+                  "name": "boundary",
+                  "item": [
+                    {
+                      "name": "Get field boundary as GeoJSON",
+                      "id": "57e1806b-ca4d-49a0-9aec-df0e05303f30",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v4/fields/:fieldId/boundary",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v4",
+                            "fields",
+                            ":fieldId",
+                            "boundary"
+                          ],
+                          "variable": [
+                            {
+                              "id": "fe52d8b4-f52e-4157-af69-b23f9786dd64",
+                              "key": "fieldId",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns the field boundary polygon as a GeoJSON Feature object."
+                      },
+                      "response": [
+                        {
+                          "id": "13c0230b-7aaf-41e0-86fd-9562afabba6e",
+                          "name": "Field boundary GeoJSON",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v4/fields/:fieldId/boundary",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v4",
+                                "fields",
+                                ":fieldId",
+                                "boundary"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "fieldId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"MultiPolygon\",\n    \"coordinates\": \"<array>\"\n  },\n  \"properties\": {}\n}",
+                          "createdAt": "2026-07-28T01:22:17.000Z",
+                          "updatedAt": "2026-07-28T01:22:17.000Z",
+                          "uid": "35240-13c0230b-7aaf-41e0-86fd-9562afabba6e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:22:17.000Z",
+                      "updatedAt": "2026-07-28T01:22:17.000Z",
+                      "uid": "35240-57e1806b-ca4d-49a0-9aec-df0e05303f30"
+                    }
+                  ],
+                  "id": "52f3a09c-4640-4254-a1e9-2972f654f4ca",
+                  "createdAt": "2026-07-28T01:22:17.000Z",
+                  "updatedAt": "2026-07-28T01:22:17.000Z",
+                  "uid": "35240-52f3a09c-4640-4254-a1e9-2972f654f4ca"
+                },
+                {
+                  "name": "Get a specific field",
+                  "id": "0aa6c901-a1f1-43f5-887d-7ddc4133f63e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v4/fields/:fieldId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v4",
+                        "fields",
+                        ":fieldId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6dd0487f-8422-4847-96a6-afc89e875f04",
+                          "key": "fieldId",
+                          "value": "<uuid>",
+                          "description": "(Required) Unique field identifier"
+                        }
+                      ]
+                    },
+                    "description": "Returns detailed information for a single field including its GeoJSON boundary."
+                  },
+                  "response": [
+                    {
+                      "id": "38147594-5c7f-4806-afcf-4fb85b53d6e4",
+                      "name": "Field details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v4/fields/:fieldId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v4",
+                            "fields",
+                            ":fieldId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "fieldId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"acreage\": \"<double>\",\n  \"growerName\": \"<string>\",\n  \"farmName\": \"<string>\",\n  \"boundary\": {\n    \"type\": \"Feature\",\n    \"geometry\": {\n      \"type\": \"Polygon\",\n      \"coordinates\": \"<array>\"\n    },\n    \"properties\": {}\n  },\n  \"centroid\": {\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"createdAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T01:22:17.000Z",
+                      "updatedAt": "2026-07-28T01:22:17.000Z",
+                      "uid": "35240-38147594-5c7f-4806-afcf-4fb85b53d6e4"
+                    },
+                    {
+                      "id": "a934c582-3215-4d61-92ff-f24a0b25e9c3",
+                      "name": "Resource not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v4/fields/:fieldId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v4",
+                            "fields",
+                            ":fieldId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "fieldId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"statusCode\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T01:22:17.000Z",
+                      "updatedAt": "2026-07-28T01:22:17.000Z",
+                      "uid": "35240-a934c582-3215-4d61-92ff-f24a0b25e9c3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:22:17.000Z",
+                  "updatedAt": "2026-07-28T01:22:17.000Z",
+                  "uid": "35240-0aa6c901-a1f1-43f5-887d-7ddc4133f63e"
+                }
+              ],
+              "id": "2cf817ca-f823-4abf-9826-48b7884dc009",
+              "createdAt": "2026-07-28T01:22:17.000Z",
+              "updatedAt": "2026-07-28T01:22:17.000Z",
+              "uid": "35240-2cf817ca-f823-4abf-9826-48b7884dc009"
+            },
+            {
+              "name": "List all fields",
+              "id": "061d4697-87e2-4149-a53e-b99952fdd039",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v4/fields?updatedAfter=<dateTime>&limit=100&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v4",
+                    "fields"
+                  ],
+                  "query": [
+                    {
+                      "description": "Return only fields updated after this ISO 8601 timestamp",
+                      "key": "updatedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of fields belonging to the authenticated user. Fields include boundaries stored as GeoJSON and associated metadata."
+              },
+              "response": [
+                {
+                  "id": "76fb8891-626b-46c3-9b9d-9680e291dde9",
+                  "name": "Paginated list of fields",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v4/fields?updatedAfter=<dateTime>&limit=100&offset=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v4",
+                        "fields"
+                      ],
+                      "query": [
+                        {
+                          "description": "Return only fields updated after this ISO 8601 timestamp",
+                          "key": "updatedAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "100"
+                        },
+                        {
+                          "key": "offset",
+                          "value": "0"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"acreage\": \"<double>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"acreage\": \"<double>\"\n    }\n  ],\n  \"total\": \"<integer>\",\n  \"hasMore\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T01:22:17.000Z",
+                  "updatedAt": "2026-07-28T01:22:17.000Z",
+                  "uid": "35240-76fb8891-626b-46c3-9b9d-9680e291dde9"
+                },
+                {
+                  "id": "7b2720c2-6193-4647-8831-c0d551a59324",
+                  "name": "Missing or invalid access token",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v4/fields?updatedAfter=<dateTime>&limit=100&offset=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v4",
+                        "fields"
+                      ],
+                      "query": [
+                        {
+                          "description": "Return only fields updated after this ISO 8601 timestamp",
+                          "key": "updatedAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "100"
+                        },
+                        {
+                          "key": "offset",
+                          "value": "0"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"statusCode\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:22:17.000Z",
+                  "updatedAt": "2026-07-28T01:22:17.000Z",
+                  "uid": "35240-7b2720c2-6193-4647-8831-c0d551a59324"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:17.000Z",
+              "updatedAt": "2026-07-28T01:22:17.000Z",
+              "uid": "35240-061d4697-87e2-4149-a53e-b99952fdd039"
+            }
+          ],
+          "id": "bb055495-4b78-49f1-b657-c8cc40b331eb",
+          "createdAt": "2026-07-28T01:22:17.000Z",
+          "updatedAt": "2026-07-28T01:22:17.000Z",
+          "uid": "35240-bb055495-4b78-49f1-b657-c8cc40b331eb"
+        }
+      ],
+      "id": "1834b062-10f7-452e-b876-69707d81fa53",
+      "createdAt": "2026-07-28T01:22:17.000Z",
+      "updatedAt": "2026-07-28T01:22:17.000Z",
+      "uid": "35240-1834b062-10f7-452e-b876-69707d81fa53"
+    },
+    {
+      "name": "oauth",
+      "item": [
+        {
+          "name": "token",
+          "item": [
+            {
+              "name": "Obtain OAuth2 access token",
+              "id": "5a6ddae7-3bb7-4103-8157-5afda659889d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) ",
+                      "key": "grant_type",
+                      "value": "refresh_token"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Authorization code (for authorization_code grant)",
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Refresh token (for refresh_token grant)",
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/oauth/token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth",
+                    "token"
+                  ]
+                },
+                "description": "Exchange an authorization code or refresh token for an OAuth2 access token. Supports authorization_code and refresh_token grant types."
+              },
+              "response": [
+                {
+                  "id": "5589eaf0-1018-48fd-b007-f3a647e339bf",
+                  "name": "Access token response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "grant_type",
+                          "value": "refresh_token"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Authorization code (for authorization_code grant)",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Refresh token (for refresh_token grant)",
+                          "key": "refresh_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "redirect_uri",
+                          "value": "<uri>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"access_token\": \"<string>\",\n  \"refresh_token\": \"<string>\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": \"<integer>\",\n  \"scope\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:22:17.000Z",
+                  "updatedAt": "2026-07-28T01:22:17.000Z",
+                  "uid": "35240-5589eaf0-1018-48fd-b007-f3a647e339bf"
+                },
+                {
+                  "id": "02fc7258-cfa7-423d-8cc6-453cafab3ca9",
+                  "name": "Invalid request parameters",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "grant_type",
+                          "value": "refresh_token"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Authorization code (for authorization_code grant)",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Refresh token (for refresh_token grant)",
+                          "key": "refresh_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "redirect_uri",
+                          "value": "<uri>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"statusCode\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:22:17.000Z",
+                  "updatedAt": "2026-07-28T01:22:17.000Z",
+                  "uid": "35240-02fc7258-cfa7-423d-8cc6-453cafab3ca9"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:17.000Z",
+              "updatedAt": "2026-07-28T01:22:17.000Z",
+              "uid": "35240-5a6ddae7-3bb7-4103-8157-5afda659889d"
+            }
+          ],
+          "id": "baf16fab-d5db-4c08-9b44-ddc99eab7273",
+          "createdAt": "2026-07-28T01:22:17.000Z",
+          "updatedAt": "2026-07-28T01:22:17.000Z",
+          "uid": "35240-baf16fab-d5db-4c08-9b44-ddc99eab7273"
+        }
+      ],
+      "id": "7e8d6080-1860-460c-8797-d36abec505cd",
+      "createdAt": "2026-07-28T01:22:17.000Z",
+      "updatedAt": "2026-07-28T01:22:17.000Z",
+      "uid": "35240-7e8d6080-1860-460c-8797-d36abec505cd"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "fields:read layers:read layers:write soilsampling:read imagery:read",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.climate.com/api/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.climate.com/api/oauth/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.climate.com/api"
+    }
+  ]
+}

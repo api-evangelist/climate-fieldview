@@ -1,0 +1,22 @@
+{
+  "provider": "climate-fieldview",
+  "sources": [
+    "climate-fieldview-application-api-openapi.yml",
+    "climate-fieldview-fields-api-openapi.yml",
+    "climate-fieldview-harvest-api-openapi.yml",
+    "climate-fieldview-planting-api-openapi.yml",
+    "climate-fieldview-soil-sampling-api-openapi.yml"
+  ],
+  "outputs": [
+    "climate-fieldview-application-api-openapi.yml",
+    "climate-fieldview-fields-api-openapi.yml",
+    "climate-fieldview-harvest-api-openapi.yml",
+    "climate-fieldview-planting-api-openapi.yml",
+    "climate-fieldview-soil-sampling-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
