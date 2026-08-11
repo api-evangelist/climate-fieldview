@@ -171,7 +171,7 @@ common:
   - type: Partners
     url: https://climate.com/partners
   - type: OpenAPI
-    url: openapi/climate-fieldview-platform-openapi.yml
+    url: openapi/_original/climate-fieldview-platform-openapi.yml
   - type: JSONSchema
     url: json-schema/climate-fieldview-field-schema.json
   - type: JSONLDContext
