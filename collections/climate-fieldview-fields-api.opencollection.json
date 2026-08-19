@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Climate FieldView Platform Application Fields API",
+    "version": "4.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://api.climate.com/api/oauth/authorize",
+      "accessTokenUrl": "https://api.climate.com/api/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.climate.com/api/v4/fields",
+            "params": [
+              {
+                "name": "updatedAfter",
+                "value": "",
+                "type": "query",
+                "description": "Return only fields updated after this ISO 8601 timestamp"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of fields belonging to the authenticated user. Fields include boundaries stored as GeoJSON and associated metadata."
+        },
+        {
+          "info": {
+            "name": "Get a specific field",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.climate.com/api/v4/fields/:fieldId",
+            "params": [
+              {
+                "name": "fieldId",
+                "value": "",
+                "type": "path",
+                "description": "Unique field identifier"
+              }
+            ]
+          },
+          "docs": "Returns detailed information for a single field including its GeoJSON boundary."
+        },
+        {
+          "info": {
+            "name": "Get field boundary as GeoJSON",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.climate.com/api/v4/fields/:fieldId/boundary",
+            "params": [
+              {
+                "name": "fieldId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the field boundary polygon as a GeoJSON Feature object."
+        },
+        {
+          "info": {
+            "name": "Obtain OAuth2 access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.climate.com/api/oauth/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "code",
+                  "value": ""
+                },
+                {
+                  "name": "refresh_token",
+                  "value": ""
+                },
+                {
+                  "name": "redirect_uri",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Exchange an authorization code or refresh token for an OAuth2 access token. Supports authorization_code and refresh_token grant types."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

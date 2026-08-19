@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Climate FieldView Platform Application Planting API",
+    "version": "4.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://api.climate.com/api/oauth/authorize",
+      "accessTokenUrl": "https://api.climate.com/api/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Planting",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List as-planted activity layers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.climate.com/api/v4/layers/asPlanted",
+            "params": [
+              {
+                "name": "fieldId",
+                "value": "",
+                "type": "query",
+                "description": "Filter layers for a specific field"
+              },
+              {
+                "name": "occurredBefore",
+                "value": "",
+                "type": "query",
+                "description": "Return layers for activities that occurred before this date (ISO 8601)"
+              },
+              {
+                "name": "occurredAfter",
+                "value": "",
+                "type": "query",
+                "description": "Return layers for activities that occurred after this date (ISO 8601)"
+              },
+              {
+                "name": "updatedAfter",
+                "value": "",
+                "type": "query",
+                "description": "Return only layers updated after this timestamp"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all as-planted layers (planting activity records) accessible to the authenticated user. Each layer is associated with one or more field IDs and includes crop and seed variety data."
+        },
+        {
+          "info": {
+            "name": "Get a specific as-planted layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.climate.com/api/v4/layers/asPlanted/:layerId",
+            "params": [
+              {
+                "name": "layerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns detailed metadata for a single as-planted activity layer."
+        },
+        {
+          "info": {
+            "name": "Download as-planted layer spatial data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.climate.com/api/v4/layers/asPlanted/:layerId/contents",
+            "params": [
+              {
+                "name": "layerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the spatial raster or vector data for an as-planted layer. Response is a download URL or binary content for the planting map."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

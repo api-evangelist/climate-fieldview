@@ -1,0 +1,282 @@
+{
+  "item": [
+    {
+      "id": "28888fc9-069b-4f81-8438-b0a8a2b4acc9",
+      "name": "Harvest",
+      "description": {
+        "content": "As-harvested yield data and maps",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53e76347-f8bc-47c8-a6f8-b0c02cf286d6",
+          "name": "List as-harvested yield layers",
+          "request": {
+            "name": "List as-harvested yield layers",
+            "description": {
+              "content": "Returns all as-harvested layers (yield data) accessible to the authenticated user. Supports filtering by field, crop type, and date range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "layers",
+                "asHarvested"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fieldId",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "occurredBefore",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "occurredAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a7832191-cd04-4203-8ca5-2182578d5ad0",
+              "name": "List of as-harvested layers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asHarvested"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fieldId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "occurredBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "occurredAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"fieldIds\": [\n        \"e3eec2df-8cd2-5f57-7b42-a23d4313d109\",\n        \"72846a63-3667-e17c-ec78-e7711f830227\"\n      ],\n      \"occurredOn\": \"1991-10-18T10:36:36.336Z\",\n      \"updatedAt\": \"2003-02-28T19:15:14.739Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"fieldIds\": [\n        \"16ea608a-6aa8-48c9-b8b9-0bd6f0d93192\",\n        \"ed9ee824-f031-f950-e361-7ae867bc5f82\"\n      ],\n      \"occurredOn\": \"2012-11-12T15:35:14.194Z\",\n      \"updatedAt\": \"1969-02-14T03:33:01.642Z\"\n    }\n  ],\n  \"total\": 9675,\n  \"hasMore\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "861d4466-6757-4fa1-93ed-74976d16f3d4",
+          "name": "Get a specific as-harvested layer",
+          "request": {
+            "name": "Get a specific as-harvested layer",
+            "description": {
+              "content": "Returns detailed metadata for a single as-harvested yield layer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "layers",
+                "asHarvested",
+                ":layerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "118c768a-d211-47c1-b65b-17547061c111",
+              "name": "As-harvested layer details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asHarvested",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"fieldIds\": [\n    \"50dbd85c-1773-d40c-0ea8-c85f5c50b2b3\",\n    \"454a806a-d204-ff58-d572-f4e8b96bbef9\"\n  ],\n  \"occurredOn\": \"2000-10-03T21:10:54.476Z\",\n  \"updatedAt\": \"1970-07-10T14:21:09.749Z\",\n  \"crop\": \"CORN\",\n  \"yieldAverage\": 9909.73114415004,\n  \"moistureAverage\": 5614.282153680507,\n  \"area\": 5436.031462875206\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.climate.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "fields:read layers:read layers:write soilsampling:read imagery:read"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.climate.com/api/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.climate.com/api/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "29fe38bb-5687-40c0-a48c-6620f010c139",
+    "name": "Climate FieldView Platform Application Harvest API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations.\n\nContact Support:\n Name: FieldView Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

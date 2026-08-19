@@ -1,0 +1,164 @@
+{
+  "item": [
+    {
+      "id": "b4f4101e-eb3d-4399-883a-cf9eeaaade61",
+      "name": "Application",
+      "description": {
+        "content": "As-applied agrochemical data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5cdc2a50-3dd1-4559-8756-6d879ae8044b",
+          "name": "List as-applied agrochemical layers",
+          "request": {
+            "name": "List as-applied agrochemical layers",
+            "description": {
+              "content": "Returns all as-applied layers (fertilizer, pesticide, and herbicide application records).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "layers",
+                "asApplied"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fieldId",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "occurredAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d61a230-c633-4ab8-9ea7-800edcc0b4b0",
+              "name": "List of as-applied layers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asApplied"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fieldId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "occurredAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"fieldIds\": [\n        \"bd53171d-a147-9778-b56d-4ed9167a7808\",\n        \"c559e552-1d02-ec90-7e75-f502a439e9b1\"\n      ],\n      \"occurredOn\": \"2005-06-28T11:01:42.703Z\",\n      \"updatedAt\": \"1985-01-22T11:32:38.061Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"fieldIds\": [\n        \"a6867bde-985d-2f38-50d4-b04156e45ab2\",\n        \"3969fbf8-5352-5b59-f05c-05b5487dbc9e\"\n      ],\n      \"occurredOn\": \"1968-03-03T22:40:45.926Z\",\n      \"updatedAt\": \"1949-12-14T09:31:15.467Z\"\n    }\n  ],\n  \"total\": 9767,\n  \"hasMore\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.climate.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "fields:read layers:read layers:write soilsampling:read imagery:read"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.climate.com/api/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.climate.com/api/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2cb04c50-1a38-43d3-8427-69cc9760dea3",
+    "name": "Climate FieldView Platform Application API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations.\n\nContact Support:\n Name: FieldView Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

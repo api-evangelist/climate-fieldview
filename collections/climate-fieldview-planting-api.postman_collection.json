@@ -1,0 +1,442 @@
+{
+  "item": [
+    {
+      "id": "15228d2e-a5d5-45e8-91a5-af3cf4a6a8bb",
+      "name": "Planting",
+      "description": {
+        "content": "As-planted activity data and maps",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "74b398ef-466d-4740-ab63-df4efe8db833",
+          "name": "List as-planted activity layers",
+          "request": {
+            "name": "List as-planted activity layers",
+            "description": {
+              "content": "Returns all as-planted layers (planting activity records) accessible to the authenticated user. Each layer is associated with one or more field IDs and includes crop and seed variety data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "layers",
+                "asPlanted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fieldId",
+                  "value": "<uuid>",
+                  "description": "Filter layers for a specific field"
+                },
+                {
+                  "disabled": false,
+                  "key": "occurredBefore",
+                  "value": "<dateTime>",
+                  "description": "Return layers for activities that occurred before this date (ISO 8601)"
+                },
+                {
+                  "disabled": false,
+                  "key": "occurredAfter",
+                  "value": "<dateTime>",
+                  "description": "Return layers for activities that occurred after this date (ISO 8601)"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAfter",
+                  "value": "<dateTime>",
+                  "description": "Return only layers updated after this timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4170bad9-240d-4f52-84b2-77df3fd3667f",
+              "name": "List of as-planted layers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asPlanted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fieldId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "occurredBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "occurredAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"fieldIds\": [\n        \"c7f182e4-3f03-bf7d-7abc-d35438690bd3\",\n        \"36209b69-5681-2547-f506-b0e2855cc1a7\"\n      ],\n      \"occurredOn\": \"2009-10-29T02:04:42.956Z\",\n      \"updatedAt\": \"2015-05-07T07:59:35.161Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"fieldIds\": [\n        \"25c96fc9-6581-3c23-3a92-54c10618444c\",\n        \"121304a6-3575-ef53-30ef-274e34bc780f\"\n      ],\n      \"occurredOn\": \"1995-09-11T23:20:06.873Z\",\n      \"updatedAt\": \"1962-07-14T00:48:46.698Z\"\n    }\n  ],\n  \"total\": 8487,\n  \"hasMore\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8680f569-a7f1-402f-a761-976d6039cbe0",
+          "name": "Get a specific as-planted layer",
+          "request": {
+            "name": "Get a specific as-planted layer",
+            "description": {
+              "content": "Returns detailed metadata for a single as-planted activity layer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "layers",
+                "asPlanted",
+                ":layerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37b62fdf-88c4-4361-864b-a13fd6024ce6",
+              "name": "As-planted layer details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asPlanted",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"fieldIds\": [\n    \"d2df0ecb-2aee-52b0-24cd-f8434d37d6d2\",\n    \"4bde8754-2048-f863-e7e1-fd95131aef3c\"\n  ],\n  \"occurredOn\": \"1947-03-02T19:39:22.719Z\",\n  \"updatedAt\": \"1957-08-29T23:24:05.642Z\",\n  \"crop\": \"CORN\",\n  \"seedVariety\": \"string\",\n  \"seedingRate\": 2973.5027363734534,\n  \"area\": 996.1661069743855\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03ac159f-2ab9-485f-9460-399d52677f33",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asPlanted",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_description\": \"string\",\n  \"statusCode\": 8951\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "375a3875-38f9-428a-8155-937c57642424",
+          "name": "Download as-planted layer spatial data",
+          "request": {
+            "name": "Download as-planted layer spatial data",
+            "description": {
+              "content": "Returns the spatial raster or vector data for an as-planted layer. Response is a download URL or binary content for the planting map.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "layers",
+                "asPlanted",
+                ":layerId",
+                "contents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c2edf36-d1b6-4ada-8e60-264aba8986e5",
+              "name": "Layer spatial content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "layers",
+                    "asPlanted",
+                    ":layerId",
+                    "contents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.climate.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "fields:read layers:read layers:write soilsampling:read imagery:read"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.climate.com/api/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.climate.com/api/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b03f89dd-6f38-4d0c-9265-ac034cb904ba",
+    "name": "Climate FieldView Platform Application Planting API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations.\n\nContact Support:\n Name: FieldView Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

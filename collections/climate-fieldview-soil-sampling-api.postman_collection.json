@@ -1,0 +1,155 @@
+{
+  "item": [
+    {
+      "id": "954436ce-6c4a-40f4-b5be-665e65d22172",
+      "name": "Soil Sampling",
+      "description": {
+        "content": "Soil sample results and layers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6d7e8241-a00c-4e44-afb9-c5c38d426816",
+          "name": "List soil sampling results",
+          "request": {
+            "name": "List soil sampling results",
+            "description": {
+              "content": "Returns soil sampling results including nutrient analysis and pH measurements for fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "soilSampling",
+                "results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fieldId",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAfter",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80214d8e-4681-4606-8b05-79905930d816",
+              "name": "List of soil sampling results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "soilSampling",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fieldId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"fieldId\": \"cfc5af0c-296f-8915-aeb2-9cca936c8017\",\n      \"sampledOn\": \"1946-10-06\",\n      \"results\": {\n        \"pH\": 5131.831519843565,\n        \"organicMatter\": 7329.7024788771205,\n        \"phosphorus\": 936.3368698318375,\n        \"potassium\": 4033.1077289677896,\n        \"cationExchangeCapacity\": 5125.620237529644\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"fieldId\": \"81ca11ff-34ca-07d4-5794-c3410e50db98\",\n      \"sampledOn\": \"2011-06-23\",\n      \"results\": {\n        \"pH\": 784.481050221858,\n        \"organicMatter\": 5778.0706863099085,\n        \"phosphorus\": 9083.84591598511,\n        \"potassium\": 4426.479759219113,\n        \"cationExchangeCapacity\": 1475.4813349816375\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.climate.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "fields:read layers:read layers:write soilsampling:read imagery:read"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.climate.com/api/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.climate.com/api/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "48458e56-2d4c-4cf4-a30d-cc5733a24d50",
+    "name": "Climate FieldView Platform Application Soil Sampling API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Climate FieldView (a Bayer product) provides a digital agriculture platform for field-level agronomic data including planting maps, soil sampling, yield data, and weather overlays. The REST API uses OAuth 2.0 for authentication with access tokens issued via authorization code grant. APIs enable access to field boundaries, as-planted and as-harvested layers, soil sample results, and agronomic recommendations.\n\nContact Support:\n Name: FieldView Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

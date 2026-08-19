@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Climate FieldView Platform Application Harvest API",
+    "version": "4.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://api.climate.com/api/oauth/authorize",
+      "accessTokenUrl": "https://api.climate.com/api/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Harvest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List as-harvested yield layers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.climate.com/api/v4/layers/asHarvested",
+            "params": [
+              {
+                "name": "fieldId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "occurredBefore",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "occurredAfter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updatedAfter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all as-harvested layers (yield data) accessible to the authenticated user. Supports filtering by field, crop type, and date range."
+        },
+        {
+          "info": {
+            "name": "Get a specific as-harvested layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.climate.com/api/v4/layers/asHarvested/:layerId",
+            "params": [
+              {
+                "name": "layerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns detailed metadata for a single as-harvested yield layer."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

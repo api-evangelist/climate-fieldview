@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Climate FieldView Platform Application Soil Sampling API",
+    "version": "4.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://api.climate.com/api/oauth/authorize",
+      "accessTokenUrl": "https://api.climate.com/api/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Soil Sampling",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List soil sampling results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.climate.com/api/v4/soilSampling/results",
+            "params": [
+              {
+                "name": "fieldId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updatedAfter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns soil sampling results including nutrient analysis and pH measurements for fields."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
