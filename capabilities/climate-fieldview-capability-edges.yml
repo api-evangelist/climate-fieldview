@@ -1,0 +1,62 @@
+slug: climate-fieldview
+provider: Climate FieldView
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Agriculture & Food Production
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Soil Sampling
+  spec_file: climate-fieldview-soil-sampling-api-openapi.yml
+  capability_id: BC-3530.10
+  capability_id_l1: BC-3530
+  capability_name: Soil Testing and Analysis
+  confidence: 0.9
+  evidence: GET /v4/soilSampling/results  listSoilSamplingResults  List soil sampling results
+  reason: Exposes soil sample results (schemas 'SoilSample', 'SoilSampleList'), which is soil sampling
+    and laboratory analysis data feeding nutrition decisions.
+- tag: Fields
+  spec_file: climate-fieldview-fields-api-openapi.yml
+  capability_id: BC-3540.20
+  capability_id_l1: BC-3540
+  capability_name: Field and Parcel Management
+  confidence: 0.85
+  evidence: GET /v4/fields/{fieldId}/boundary  getFieldBoundary  Get field boundary as GeoJSON
+  reason: Operations list, retrieve and return boundaries for grower fields, which is field and parcel
+    record management. The included OAuth token endpoint is incidental plumbing.
+- tag: Planting
+  spec_file: climate-fieldview-planting-api-openapi.yml
+  capability_id: BC-3500.30
+  capability_id_l1: BC-3500
+  capability_name: Planting and Sowing Operations
+  confidence: 0.85
+  evidence: GET /v4/layers/asPlanted  listAsPlantedLayers  List as-planted activity layers
+  reason: As-planted activity layers and their spatial contents are records of seed placement/planting
+    operations in the field, matching Planting and Sowing Operations.
+- tag: Application
+  spec_file: climate-fieldview-application-api-openapi.yml
+  capability_id: BC-3500
+  capability_id_l1: BC-3500
+  capability_name: Crop Production Management
+  confidence: 0.8
+  evidence: GET /v4/layers/asApplied  listAsAppliedLayers  List as-applied agrochemical layers
+  reason: Exposes as-applied agrochemical application records for fields - in-season crop input application
+    operations. L1 crop production is clear; whether the agrochemical is nutrition or protection is not
+    distinguished, so no L2.
+- tag: Harvest
+  spec_file: climate-fieldview-harvest-api-openapi.yml
+  capability_id: BC-3560
+  capability_id_l1: BC-3560
+  capability_name: Harvest & Post-Harvest Operations Management
+  confidence: 0.7
+  evidence: GET /v4/layers/asHarvested  listAsHarvestedLayers  List as-harvested yield layers
+  reason: Provides as-harvested yield layers captured from harvest equipment, i.e. records of executed
+    field harvest operations. Could alternatively be read as yield estimation (BC-3500.80), so L1 only
+    with moderate confidence.

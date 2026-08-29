@@ -161,6 +161,9 @@ apis:
   - type: SDKs
     url: https://github.com/TheClimateCorporation/api-example
 common:
+  - type: CapabilityMap
+    url: capabilities/climate-fieldview-capability-edges.yml
+    name: Climate FieldView Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/climate-fieldview/overview
   - type: AgenticAccess
