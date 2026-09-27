@@ -50,17 +50,6 @@ paths:
                 $ref: '#/components/schemas/LayerList'
 components:
   schemas:
-    LayerList:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/LayerSummary'
-        total:
-          type: integer
-        hasMore:
-          type: boolean
     LayerSummary:
       type: object
       properties:
@@ -77,6 +66,17 @@ components:
         updatedAt:
           type: string
           format: date-time
+    LayerList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LayerSummary'
+        total:
+          type: integer
+        hasMore:
+          type: boolean
   securitySchemes:
     oauth2:
       type: oauth2

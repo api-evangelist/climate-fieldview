@@ -45,13 +45,6 @@ paths:
                 $ref: '#/components/schemas/SoilSampleList'
 components:
   schemas:
-    SoilSampleList:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/SoilSample'
     SoilSample:
       type: object
       properties:
@@ -76,6 +69,13 @@ components:
               type: number
             cationExchangeCapacity:
               type: number
+    SoilSampleList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SoilSample'
   securitySchemes:
     oauth2:
       type: oauth2

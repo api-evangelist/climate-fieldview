@@ -80,17 +80,6 @@ paths:
                 $ref: '#/components/schemas/HarvestLayer'
 components:
   schemas:
-    LayerList:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/LayerSummary'
-        total:
-          type: integer
-        hasMore:
-          type: boolean
     LayerSummary:
       type: object
       properties:
@@ -107,6 +96,17 @@ components:
         updatedAt:
           type: string
           format: date-time
+    LayerList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LayerSummary'
+        total:
+          type: integer
+        hasMore:
+          type: boolean
     HarvestLayer:
       allOf:
       - $ref: '#/components/schemas/LayerSummary'

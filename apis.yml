@@ -42,7 +42,8 @@ tags:
   - Harvest
   - Authentication
   - Planting
-  - Precision Ag
+  - Precision Agriculture
+  - AgTech
 tags_raw:
   - Agriculture
   - Bayer
@@ -52,6 +53,7 @@ tags_raw:
   - OAuth2
   - Planting
   - Precision Ag
+  - AgTech
 description: >-
   Climate FieldView is a digital agriculture platform from Bayer (originally developed by The Climate Corporation) that
   gives growers, agronomists, and agribusiness partners a single view of field-level operations. The platform ingests
