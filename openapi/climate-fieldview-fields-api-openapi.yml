@@ -145,51 +145,6 @@ paths:
           $ref: '#/components/responses/BadRequest'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        error_description:
-          type: string
-        statusCode:
-          type: integer
-    FieldSummary:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        updatedAt:
-          type: string
-          format: date-time
-        acreage:
-          type: number
-          format: double
-    GeoJsonFeature:
-      type: object
-      required:
-      - type
-      - geometry
-      properties:
-        type:
-          type: string
-          enum:
-          - Feature
-        geometry:
-          type: object
-          properties:
-            type:
-              type: string
-              enum:
-              - Polygon
-              - MultiPolygon
-            coordinates:
-              type: array
-        properties:
-          type: object
     FieldList:
       type: object
       properties:
@@ -201,6 +156,15 @@ components:
           type: integer
         hasMore:
           type: boolean
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        error_description:
+          type: string
+        statusCode:
+          type: integer
     Field:
       allOf:
       - $ref: '#/components/schemas/FieldSummary'
@@ -238,6 +202,42 @@ components:
           description: Token lifetime in seconds
         scope:
           type: string
+    FieldSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+        acreage:
+          type: number
+          format: double
+    GeoJsonFeature:
+      type: object
+      required:
+      - type
+      - geometry
+      properties:
+        type:
+          type: string
+          enum:
+          - Feature
+        geometry:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+              - Polygon
+              - MultiPolygon
+            coordinates:
+              type: array
+        properties:
+          type: object
   responses:
     Unauthorized:
       description: Missing or invalid access token

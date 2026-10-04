@@ -80,6 +80,26 @@ paths:
                 $ref: '#/components/schemas/HarvestLayer'
 components:
   schemas:
+    HarvestLayer:
+      allOf:
+      - $ref: '#/components/schemas/LayerSummary'
+      - type: object
+        properties:
+          crop:
+            type: string
+            examples:
+            - CORN
+            - SOYBEAN
+            - WHEAT
+          yieldAverage:
+            type: number
+            description: Average yield (bushels per acre)
+          moistureAverage:
+            type: number
+            description: Average grain moisture percentage
+          area:
+            type: number
+            description: Harvested area in acres
     LayerSummary:
       type: object
       properties:
@@ -107,26 +127,6 @@ components:
           type: integer
         hasMore:
           type: boolean
-    HarvestLayer:
-      allOf:
-      - $ref: '#/components/schemas/LayerSummary'
-      - type: object
-        properties:
-          crop:
-            type: string
-            examples:
-            - CORN
-            - SOYBEAN
-            - WHEAT
-          yieldAverage:
-            type: number
-            description: Average yield (bushels per acre)
-          moistureAverage:
-            type: number
-            description: Average grain moisture percentage
-          area:
-            type: number
-            description: Harvested area in acres
   securitySchemes:
     oauth2:
       type: oauth2

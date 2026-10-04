@@ -116,6 +116,17 @@ components:
           type: string
         statusCode:
           type: integer
+    LayerList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LayerSummary'
+        total:
+          type: integer
+        hasMore:
+          type: boolean
     PlantingLayer:
       allOf:
       - $ref: '#/components/schemas/LayerSummary'
@@ -135,17 +146,6 @@ components:
           area:
             type: number
             description: Planted area in acres
-    LayerList:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/LayerSummary'
-        total:
-          type: integer
-        hasMore:
-          type: boolean
     LayerSummary:
       type: object
       properties:
