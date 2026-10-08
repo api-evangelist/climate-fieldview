@@ -163,6 +163,12 @@ apis:
   - type: SDKs
     url: https://github.com/TheClimateCorporation/api-example
 common:
+  - type: Plans
+    url: plans/climate-fieldview-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/climate-fieldview-rate-limits.yml
+  - type: FinOps
+    url: finops/climate-fieldview-finops.yml
   - type: CapabilityMap
     url: capabilities/climate-fieldview-capability-edges.yml
     name: Climate FieldView Business Capability Map
