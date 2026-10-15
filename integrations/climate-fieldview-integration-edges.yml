@@ -1,0 +1,332 @@
+edges:
+- partner_name: AcreConnect by Rantizo
+  app: AcreConnect by Rantizo
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/acreconnect.html
+  category: FieldView connected partner
+  partner_url: https://acreconnect.io
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Ag Analytics
+  app: Ag Analytics
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/ag-analytics.html
+  category: FieldView connected partner
+  partner_url: https://analytics.ag
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Ag Leader AgFiniti
+  app: Ag Leader AgFiniti
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/ag-leader-agfiniti---sms.html
+  category: FieldView connected partner
+  partner_url: https://agleader.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Bushel Farm
+  app: Bushel Farm
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/bushel-farm.html
+  category: FieldView connected partner
+  partner_url: https://bushelfarm.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Ceres Solutions
+  app: Ceres Solutions
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/ceres-solutions.html
+  category: FieldView connected partner
+  partner_url: null
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: CLAAS
+  app: CLAAS
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/claas.html
+  category: FieldView connected partner
+  partner_url: https://claas.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Combyne
+  app: Combyne
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/combyne.html
+  category: FieldView connected partner
+  partner_url: https://combyne.ag
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: DroneDeploy
+  app: DroneDeploy
+  partner: dronedeploy
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/dronedeploy.html
+  category: FieldView connected partner
+  partner_url: https://dronedeploy.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Farmers Mutual Hail
+  app: Farmers Mutual Hail
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/farmers-mutual-hail.html
+  category: FieldView connected partner
+  partner_url: https://fmh.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: FARMserver by Beck's Hybrids
+  app: FARMserver by Beck's Hybrids
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/farmserver-by-beck-s-hybrids.html
+  category: FieldView connected partner
+  partner_url: https://farmserver.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: FieldAnalytics by EverAg
+  app: FieldAnalytics by EverAg
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/fieldanalytics-by-everag.html
+  category: FieldView connected partner
+  partner_url: https://ever.ag
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Helena AI 360
+  app: Helena AI 360
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/helena-ai-360.html
+  category: FieldView connected partner
+  partner_url: null
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: John Deere Operations Center
+  app: John Deere Operations Center
+  partner: john-deere
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/john-deere-operations-center.html
+  category: FieldView connected partner
+  partner_url: https://deere.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Panarama
+  app: Panarama
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/panorama.html
+  category: FieldView connected partner
+  partner_url: https://panorama.ag
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Pattern Ag
+  app: Pattern Ag
+  partner: pattern-ag
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/pattern-ag.html
+  category: FieldView connected partner
+  partner_url: https://pattern.ag
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Regrow
+  app: Regrow
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/regrow.html
+  category: FieldView connected partner
+  partner_url: https://regrow.ag
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Scale
+  app: Scale
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/scale-tec.html
+  category: FieldView connected partner
+  partner_url: https://scale-tec.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Sentera
+  app: Sentera
+  partner: sentera
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/sentera.html
+  category: FieldView connected partner
+  partner_url: https://sentera.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: SoilOptix
+  app: SoilOptix
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/soiloptix.html
+  category: FieldView connected partner
+  partner_url: https://soiloptix.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Telus Agronomy
+  app: Telus Agronomy
+  partner: telus
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/telus.html
+  category: FieldView connected partner
+  partner_url: https://telus.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Traction
+  app: Traction
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/traction.html
+  category: FieldView connected partner
+  partner_url: https://tractionag.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: VariMax Solutions
+  app: VariMax Solutions
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/varimax-solutions.html
+  category: FieldView connected partner
+  partner_url: https://varimaxsystems.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+- partner_name: Winfield United Data Silo
+  app: Winfield United Data Silo
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://climate.com/en-us/partners/winfield-united---data-silo.html
+  category: FieldView connected partner
+  partner_url: https://winfieldunited.com
+  detected_by: sweep-agriculture-food.py
+  detected: '2026-10-15'
+generated: '2026-10-15'
+method: searched
+source:
+- https://aggateway.org/AboutUs/Members.aspx
+- https://agrirouter.com/en/solutions
+checked:
+- https://aggateway.org/AboutUs/Members.aspx
+- https://agrirouter.com/en/solutions
+- https://climate.com/en-us/partners.html
