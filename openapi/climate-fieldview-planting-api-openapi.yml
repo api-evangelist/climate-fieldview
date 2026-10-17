@@ -107,15 +107,6 @@ paths:
                 format: binary
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        error_description:
-          type: string
-        statusCode:
-          type: integer
     LayerList:
       type: object
       properties:
@@ -127,6 +118,31 @@ components:
           type: integer
         hasMore:
           type: boolean
+    LayerSummary:
+      type: object
+      properties:
+        id:
+          type: string
+        fieldIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        occurredOn:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        error_description:
+          type: string
+        statusCode:
+          type: integer
     PlantingLayer:
       allOf:
       - $ref: '#/components/schemas/LayerSummary'
@@ -146,22 +162,6 @@ components:
           area:
             type: number
             description: Planted area in acres
-    LayerSummary:
-      type: object
-      properties:
-        id:
-          type: string
-        fieldIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-        occurredOn:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
   responses:
     NotFound:
       description: Resource not found

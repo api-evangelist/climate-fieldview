@@ -80,6 +80,22 @@ paths:
                 $ref: '#/components/schemas/HarvestLayer'
 components:
   schemas:
+    LayerSummary:
+      type: object
+      properties:
+        id:
+          type: string
+        fieldIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        occurredOn:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
     HarvestLayer:
       allOf:
       - $ref: '#/components/schemas/LayerSummary'
@@ -100,22 +116,6 @@ components:
           area:
             type: number
             description: Harvested area in acres
-    LayerSummary:
-      type: object
-      properties:
-        id:
-          type: string
-        fieldIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-        occurredOn:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
     LayerList:
       type: object
       properties:

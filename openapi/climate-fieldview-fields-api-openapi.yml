@@ -145,26 +145,6 @@ paths:
           $ref: '#/components/responses/BadRequest'
 components:
   schemas:
-    FieldList:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldSummary'
-        total:
-          type: integer
-        hasMore:
-          type: boolean
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        error_description:
-          type: string
-        statusCode:
-          type: integer
     Field:
       allOf:
       - $ref: '#/components/schemas/FieldSummary'
@@ -186,6 +166,40 @@ components:
           createdAt:
             type: string
             format: date-time
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        error_description:
+          type: string
+        statusCode:
+          type: integer
+    FieldSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+        acreage:
+          type: number
+          format: double
+    FieldList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldSummary'
+        total:
+          type: integer
+        hasMore:
+          type: boolean
     TokenResponse:
       type: object
       properties:
@@ -202,20 +216,6 @@ components:
           description: Token lifetime in seconds
         scope:
           type: string
-    FieldSummary:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        updatedAt:
-          type: string
-          format: date-time
-        acreage:
-          type: number
-          format: double
     GeoJsonFeature:
       type: object
       required:
@@ -239,14 +239,14 @@ components:
         properties:
           type: object
   responses:
-    Unauthorized:
-      description: Missing or invalid access token
+    BadRequest:
+      description: Invalid request parameters
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request parameters
+    Unauthorized:
+      description: Missing or invalid access token
       content:
         application/json:
           schema:
