@@ -1,28 +1,25 @@
 {
   "provider": "climate-fieldview",
   "sources": [
-    "_original/climate-fieldview-platform-openapi.yml"
+    "_original/climate-fieldview-openapi.yml"
   ],
   "outputs": [
-    "climate-fieldview-application-api-openapi.yml",
+    "climate-fieldview-boundaries-api-openapi.yml",
+    "climate-fieldview-exports-api-openapi.yml",
+    "climate-fieldview-farmorganizations-api-openapi.yml",
     "climate-fieldview-fields-api-openapi.yml",
-    "climate-fieldview-harvest-api-openapi.yml",
-    "climate-fieldview-planting-api-openapi.yml",
-    "climate-fieldview-soil-sampling-api-openapi.yml"
+    "climate-fieldview-layers-api-openapi.yml",
+    "climate-fieldview-operations-api-openapi.yml",
+    "climate-fieldview-resourceowners-api-openapi.yml",
+    "climate-fieldview-uploads-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "climate-fieldview-platform-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "climate-fieldview-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: written (+7 apis, 8 total)"
   ],
-  "skipped": [
-    "climate-fieldview-application-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "climate-fieldview-fields-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "climate-fieldview-harvest-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "climate-fieldview-planting-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "climate-fieldview-soil-sampling-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }

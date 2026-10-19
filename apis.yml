@@ -62,26 +62,6 @@ description: >-
   authorization-code grant, and resources include fields, planting and harvest activities, application records, and soil
   samples.
 apis:
-- aid: climate-fieldview:climate-fieldview-application-api
-  name: Climate FieldView Application API
-  description: As-applied agrochemical data
-  humanURL: https://dev.fieldview.com/
-  baseURL: https://api.climate.com
-  tags:
-  - Application
-  properties:
-  - type: OpenAPI
-    url: openapi/climate-fieldview-application-api-openapi.yml
-  - type: Documentation
-    url: https://dev.fieldview.com/technical-documentation/
-  - type: Authentication
-    url: https://dev.fieldview.com/api-details/
-  - type: FAQ
-    url: https://dev.fieldview.com/faq/
-  - type: ChangeLog
-    url: https://dev.fieldview.com/technical-documentation/next-versions/
-  - type: SDKs
-    url: https://github.com/TheClimateCorporation/api-example
 - aid: climate-fieldview:climate-fieldview-fields-api
   name: Climate FieldView Fields API
   description: Agricultural field boundaries and metadata
@@ -102,16 +82,16 @@ apis:
     url: https://dev.fieldview.com/technical-documentation/next-versions/
   - type: SDKs
     url: https://github.com/TheClimateCorporation/api-example
-- aid: climate-fieldview:climate-fieldview-harvest-api
-  name: Climate FieldView Harvest API
-  description: As-harvested yield data and maps
+- aid: climate-fieldview:climate-fieldview-boundaries-api
+  name: Climate FieldView Boundaries API
+  description: Field Boundary data endpoints.
   humanURL: https://dev.fieldview.com/
   baseURL: https://api.climate.com
   tags:
-  - Harvest
+  - Boundaries
   properties:
   - type: OpenAPI
-    url: openapi/climate-fieldview-harvest-api-openapi.yml
+    url: openapi/climate-fieldview-boundaries-api-openapi.yml
   - type: Documentation
     url: https://dev.fieldview.com/technical-documentation/
   - type: Authentication
@@ -122,16 +102,16 @@ apis:
     url: https://dev.fieldview.com/technical-documentation/next-versions/
   - type: SDKs
     url: https://github.com/TheClimateCorporation/api-example
-- aid: climate-fieldview:climate-fieldview-planting-api
-  name: Climate FieldView Planting API
-  description: As-planted activity data and maps
+- aid: climate-fieldview:climate-fieldview-exports-api
+  name: Climate FieldView Exports API
+  description: General data export endpoints.
   humanURL: https://dev.fieldview.com/
   baseURL: https://api.climate.com
   tags:
-  - Planting
+  - Exports
   properties:
   - type: OpenAPI
-    url: openapi/climate-fieldview-planting-api-openapi.yml
+    url: openapi/climate-fieldview-exports-api-openapi.yml
   - type: Documentation
     url: https://dev.fieldview.com/technical-documentation/
   - type: Authentication
@@ -142,16 +122,96 @@ apis:
     url: https://dev.fieldview.com/technical-documentation/next-versions/
   - type: SDKs
     url: https://github.com/TheClimateCorporation/api-example
-- aid: climate-fieldview:climate-fieldview-soil-sampling-api
-  name: Climate FieldView Soil Sampling API
-  description: Soil sample results and layers
+- aid: climate-fieldview:climate-fieldview-farmorganizations-api
+  name: Climate FieldView Farm Organizations API
+  description: Farm organization data endpoints.
   humanURL: https://dev.fieldview.com/
   baseURL: https://api.climate.com
   tags:
-  - Soil Sampling
+  - FarmOrganizations
   properties:
   - type: OpenAPI
-    url: openapi/climate-fieldview-soil-sampling-api-openapi.yml
+    url: openapi/climate-fieldview-farmorganizations-api-openapi.yml
+  - type: Documentation
+    url: https://dev.fieldview.com/technical-documentation/
+  - type: Authentication
+    url: https://dev.fieldview.com/api-details/
+  - type: FAQ
+    url: https://dev.fieldview.com/faq/
+  - type: ChangeLog
+    url: https://dev.fieldview.com/technical-documentation/next-versions/
+  - type: SDKs
+    url: https://github.com/TheClimateCorporation/api-example
+- aid: climate-fieldview:climate-fieldview-layers-api
+  name: Climate FieldView Layers API
+  description: General data retrieval endpoints.
+  humanURL: https://dev.fieldview.com/
+  baseURL: https://api.climate.com
+  tags:
+  - Layers
+  properties:
+  - type: OpenAPI
+    url: openapi/climate-fieldview-layers-api-openapi.yml
+  - type: Documentation
+    url: https://dev.fieldview.com/technical-documentation/
+  - type: Authentication
+    url: https://dev.fieldview.com/api-details/
+  - type: FAQ
+    url: https://dev.fieldview.com/faq/
+  - type: ChangeLog
+    url: https://dev.fieldview.com/technical-documentation/next-versions/
+  - type: SDKs
+    url: https://github.com/TheClimateCorporation/api-example
+- aid: climate-fieldview:climate-fieldview-operations-api
+  name: Climate FieldView Operations API
+  description: Operation data endpoints.
+  humanURL: https://dev.fieldview.com/
+  baseURL: https://api.climate.com
+  tags:
+  - Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/climate-fieldview-operations-api-openapi.yml
+  - type: Documentation
+    url: https://dev.fieldview.com/technical-documentation/
+  - type: Authentication
+    url: https://dev.fieldview.com/api-details/
+  - type: FAQ
+    url: https://dev.fieldview.com/faq/
+  - type: ChangeLog
+    url: https://dev.fieldview.com/technical-documentation/next-versions/
+  - type: SDKs
+    url: https://github.com/TheClimateCorporation/api-example
+- aid: climate-fieldview:climate-fieldview-resourceowners-api
+  name: Climate FieldView Resource Owners API
+  description: Resource Owner data endpoints.
+  humanURL: https://dev.fieldview.com/
+  baseURL: https://api.climate.com
+  tags:
+  - ResourceOwners
+  properties:
+  - type: OpenAPI
+    url: openapi/climate-fieldview-resourceowners-api-openapi.yml
+  - type: Documentation
+    url: https://dev.fieldview.com/technical-documentation/
+  - type: Authentication
+    url: https://dev.fieldview.com/api-details/
+  - type: FAQ
+    url: https://dev.fieldview.com/faq/
+  - type: ChangeLog
+    url: https://dev.fieldview.com/technical-documentation/next-versions/
+  - type: SDKs
+    url: https://github.com/TheClimateCorporation/api-example
+- aid: climate-fieldview:climate-fieldview-uploads-api
+  name: Climate FieldView Uploads API
+  description: General data upload endpoints.
+  humanURL: https://dev.fieldview.com/
+  baseURL: https://api.climate.com
+  tags:
+  - Uploads
+  properties:
+  - type: OpenAPI
+    url: openapi/climate-fieldview-uploads-api-openapi.yml
   - type: Documentation
     url: https://dev.fieldview.com/technical-documentation/
   - type: Authentication
