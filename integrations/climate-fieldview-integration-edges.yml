@@ -29,8 +29,8 @@ edges:
   detected: '2026-10-15'
 - partner_name: Ag Leader AgFiniti
   app: Ag Leader AgFiniti
-  partner: null
-  partner_match: null
+  partner: ag-leader
+  partner_match: domain
   type: marketplace
   marketplace: own
   channel: partner-built
@@ -211,8 +211,8 @@ edges:
   detected: '2026-10-15'
 - partner_name: Regrow
   app: Regrow
-  partner: null
-  partner_match: null
+  partner: regrow-ag
+  partner_match: domain
   type: marketplace
   marketplace: own
   channel: partner-built
