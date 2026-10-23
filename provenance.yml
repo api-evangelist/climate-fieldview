@@ -13,11 +13,11 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   collections/climate-fieldview-application-api.opencollection.json:
-    method: derived
-    evidence: openapi/climate-fieldview-application-api
+    method: unknown
+    evidence: no authorship recorded
   collections/climate-fieldview-application-api.postman_collection.json:
-    method: derived
-    evidence: openapi/climate-fieldview-application-api
+    method: unknown
+    evidence: no authorship recorded
   collections/climate-fieldview-fields-api.opencollection.json:
     method: derived
     evidence: openapi/climate-fieldview-fields-api
@@ -25,17 +25,17 @@ artifacts:
     method: derived
     evidence: openapi/climate-fieldview-fields-api
   collections/climate-fieldview-harvest-api.opencollection.json:
-    method: derived
-    evidence: openapi/climate-fieldview-harvest-api
+    method: unknown
+    evidence: no authorship recorded
   collections/climate-fieldview-harvest-api.postman_collection.json:
-    method: derived
-    evidence: openapi/climate-fieldview-harvest-api
+    method: unknown
+    evidence: no authorship recorded
   collections/climate-fieldview-planting-api.opencollection.json:
-    method: derived
-    evidence: openapi/climate-fieldview-planting-api
+    method: unknown
+    evidence: no authorship recorded
   collections/climate-fieldview-planting-api.postman_collection.json:
-    method: derived
-    evidence: openapi/climate-fieldview-planting-api
+    method: unknown
+    evidence: no authorship recorded
   collections/climate-fieldview-platform.opencollection.json:
     method: unknown
     evidence: no authorship recorded
@@ -43,15 +43,21 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   collections/climate-fieldview-soil-sampling-api.opencollection.json:
-    method: derived
-    evidence: openapi/climate-fieldview-soil-sampling-api
+    method: unknown
+    evidence: no authorship recorded
   collections/climate-fieldview-soil-sampling-api.postman_collection.json:
-    method: derived
-    evidence: openapi/climate-fieldview-soil-sampling-api
+    method: unknown
+    evidence: no authorship recorded
   finops/climate-fieldview-finops.yml:
     method: generated
     evidence: declared in the artifact
   front-door-ai/2026-09-17.yml:
+    method: unknown
+    evidence: no authorship recorded
+  integrations/_index.yml:
+    method: generated
+    evidence: carries an API Evangelist house phrase
+  integrations/climate-fieldview-integration-edges.yml:
     method: unknown
     evidence: no authorship recorded
   json-ld/climate-fieldview-context.jsonld:
@@ -60,127 +66,7 @@ artifacts:
   json-schema/climate-fieldview-field-schema.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-24T161608.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T125852.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T133943.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T143147.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T154045.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-26T215308.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T094438.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T103455.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T123021.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T132314.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T140727.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-28T221322.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T213958.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T230545.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T203505.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T220315.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-31T223420.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T063623.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T210448.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T222808.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T224043.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T161828.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T174231.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T062714.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T212454.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T224856.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T055819.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T144739.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T195450.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T211839.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T011047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T224210.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T200636.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T213054.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T214843.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T232836.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T204815.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T222408.yml:
+  kin/checks-2026-10-11T110117.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-12T062655.yml:
@@ -264,43 +150,67 @@ artifacts:
   kin/score-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/climate-fieldview-platform-openapi.yml:
+  kin/score-2026-09-25T210408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T232841.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T000835.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T024842.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-11T110117.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  openapi/_original/climate-fieldview-openapi.yml:
     method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
-  openapi/climate-fieldview-application-api-openapi.yml:
+    evidence: byte-identical to https://dev.fieldview.com/openapi/platform.yaml (sha256 f6831695600e,
+      fetched 2026-10-19)
+  openapi/climate-fieldview-boundaries-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/climate-fieldview-exports-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/climate-fieldview-farmorganizations-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/climate-fieldview-fields-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/climate-fieldview-harvest-api-openapi.yml:
+  openapi/climate-fieldview-layers-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/climate-fieldview-planting-api-openapi.yml:
+  openapi/climate-fieldview-operations-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/climate-fieldview-soil-sampling-api-openapi.yml:
+  openapi/climate-fieldview-resourceowners-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/climate-fieldview-uploads-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   plans/climate-fieldview-plans-pricing.yml:
     method: generated
     evidence: declared in the artifact
   postman/climate-fieldview-application-api.postman_collection.json:
-    method: derived
-    evidence: openapi/climate-fieldview-application-api
+    method: unknown
+    evidence: no authorship recorded
   postman/climate-fieldview-fields-api.postman_collection.json:
     method: derived
     evidence: openapi/climate-fieldview-fields-api
   postman/climate-fieldview-harvest-api.postman_collection.json:
-    method: derived
-    evidence: openapi/climate-fieldview-harvest-api
+    method: unknown
+    evidence: no authorship recorded
   postman/climate-fieldview-planting-api.postman_collection.json:
-    method: derived
-    evidence: openapi/climate-fieldview-planting-api
+    method: unknown
+    evidence: no authorship recorded
   postman/climate-fieldview-soil-sampling-api.postman_collection.json:
-    method: derived
-    evidence: openapi/climate-fieldview-soil-sampling-api
+    method: unknown
+    evidence: no authorship recorded
   rate-limits/climate-fieldview-rate-limits.yml:
     method: generated
     evidence: declared in the artifact
