@@ -108,6 +108,8 @@ apis:
   humanURL: https://dev.fieldview.com/
   baseURL: https://api.climate.com
   tags:
+  - Export
+  tags_raw:
   - Exports
   properties:
   - type: OpenAPI
@@ -167,7 +169,8 @@ apis:
   description: Operation data endpoints.
   humanURL: https://dev.fieldview.com/
   baseURL: https://api.climate.com
-  tags:
+  tags: []
+  tags_raw:
   - Operations
   properties:
   - type: OpenAPI
