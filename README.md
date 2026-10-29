@@ -1,4 +1,4 @@
-# Climate FieldView (climate-fieldview)
+# Climate FieldView
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,79 +66,158 @@
 
 Climate FieldView is a digital agriculture platform from Bayer (originally developed by The Climate Corporation) that gives growers, agronomists, and agribusiness partners a single view of field-level operations. The platform ingests as-planted, as-applied, and as-harvested data from field equipment, combines it with imagery, weather, and soil layers, and exposes those agronomic datasets through a REST API at api.climate.com. Authentication is via OAuth 2.0 authorization-code grant, and resources include fields, planting and harvest activities, application records, and soil samples.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/climate-fieldview/refs/heads/main/apis.yml)
+**Areas:** Agriculture · Bayer · Crop Data · Field Boundaries · Harvest · Authentication · Planting · Precision Agriculture · AgTech
 
-## Scope
+## Climate FieldView on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Climate FieldView is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/climate-fieldview/](https://apis.io/providers/climate-fieldview/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-- Agriculture
-- Bayer
-- Crop Data
-- Field Boundaries
-- Harvest
-- OAuth2
-- Planting
-- Precision Ag
+- [Climate FieldView Application API](https://apis.io/apis/climate-fieldview/climate-fieldview-application-api/) — As-applied agrochemical data
+- [Climate FieldView Fields API](https://apis.io/apis/climate-fieldview/climate-fieldview-fields-api/) — Agricultural field boundaries and metadata
+- [Climate FieldView Harvest API](https://apis.io/apis/climate-fieldview/climate-fieldview-harvest-api/) — As-harvested yield data and maps
+- [Climate FieldView Planting API](https://apis.io/apis/climate-fieldview/climate-fieldview-planting-api/) — As-planted activity data and maps
+- [Climate FieldView Soil Sampling API](https://apis.io/apis/climate-fieldview/climate-fieldview-soil-sampling-api/) — Soil sample results and layers
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-03-05
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Climate FieldView Platform API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Climate FieldView Platform API is a partner-oriented REST API for reading and writing field-level agronomic data on behalf of growers who have linked their FieldView account. Endpoints expose fields (with GeoJSON boundaries), planting layers, harvest layers, application activities, and soil sample results, and use OAuth 2.0 access tokens passed in the Authorization header. The token endpoint is https://api.climate.com/api/oauth/token; data endpoints live under https://api.climate.com/api/v4 and return JSON with paginated list responses.
+- [Climate Fieldview Agentic Access](https://apis.io/agentic-access/climate-fieldview/climate-fieldview-agentic-access/)
 
-- **Human URL:** [https://dev.fieldview.com/](https://dev.fieldview.com/)
-- **Base URL:** `https://api.climate.com`
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- Agriculture
-- Bayer
-- Crop Data
-- Field Boundaries
-- Harvest
-- OAuth2
-- Planting
-- Precision Ag
+- [Climate FieldView Field](https://apis.io/schemas/climate-fieldview/climate-fieldview-field/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://dev.fieldview.com/technical-documentation/)
-- [Authentication](https://dev.fieldview.com/api-details/)
-- [F A Q](https://dev.fieldview.com/faq/)
-- [Changelog](https://dev.fieldview.com/technical-documentation/next-versions/)
-- [S D Ks](https://github.com/TheClimateCorporation/api-example)
-- [OpenAPI](openapi/climate-fieldview-platform-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/climate-fieldview-platform.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/climate-fieldview-platform.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Linked-data contexts for the provider's vocabulary.
 
-## Common Properties
+- [Climate Fieldview Context](https://apis.io/jsonld/climate-fieldview/climate-fieldview-context/)
 
-- [LinkedIn](https://www.linkedin.com/company/climate-llc)
+#### Collections (11)
+
+Postman and Open Collection request collections.
+
+- [Climate FieldView Platform Application API](https://apis.io/collections/climate-fieldview/open-climate-fieldview-application-api/)
+- [Climate FieldView Platform Application Fields API](https://apis.io/collections/climate-fieldview/open-climate-fieldview-fields-api/)
+- [Climate FieldView Platform Application Harvest API](https://apis.io/collections/climate-fieldview/open-climate-fieldview-harvest-api/)
+- [Climate FieldView Platform Application Planting API](https://apis.io/collections/climate-fieldview/open-climate-fieldview-planting-api/)
+- [Climate FieldView Platform API](https://apis.io/collections/climate-fieldview/open-climate-fieldview-platform/)
+- [Climate FieldView Platform Application Soil Sampling API](https://apis.io/collections/climate-fieldview/open-climate-fieldview-soil-sampling-api/)
+- [Climate FieldView Platform Application API](https://apis.io/collections/climate-fieldview/postman-climate-fieldview-application-api/)
+- [Climate FieldView Platform Application Fields API](https://apis.io/collections/climate-fieldview/postman-climate-fieldview-fields-api/)
+- [Climate FieldView Platform Application Harvest API](https://apis.io/collections/climate-fieldview/postman-climate-fieldview-harvest-api/)
+- [Climate FieldView Platform Application Planting API](https://apis.io/collections/climate-fieldview/postman-climate-fieldview-planting-api/)
+- [Climate FieldView Platform Application Soil Sampling API](https://apis.io/collections/climate-fieldview/postman-climate-fieldview-soil-sampling-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Climate FieldView — jsonschema rules](https://apis.io/rules/climate-fieldview/climate-fieldview-jsonschema-spectral-rules/)
+- [Climate FieldView API Rules](https://apis.io/rules/climate-fieldview/climate-fieldview-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Climate Fieldview Authentication](https://apis.io/security/climate-fieldview/climate-fieldview-authentication/)
+- [Climate Fieldview Domain Security](https://apis.io/security/climate-fieldview/climate-fieldview-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Climate Fieldview Scopes](https://apis.io/scopes/climate-fieldview/climate-fieldview-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Climate Fieldview Plans Pricing](https://apis.io/plans/climate-fieldview/climate-fieldview-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Climate Fieldview Rate Limits](https://apis.io/rate-limits/climate-fieldview/climate-fieldview-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Climate Fieldview Finops](https://apis.io/finops/climate-fieldview/climate-fieldview-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://climate.com/)
-- [Portal](https://dev.fieldview.com/)
 - [Documentation](https://dev.fieldview.com/technical-documentation/)
-- [Authentication](https://dev.fieldview.com/api-details/)
-- [Getting Started](https://dev.fieldview.com/faq/)
-- [Terms of Service](https://climate.com/en-us/legal/terms-of-service.html)
-- [Privacy Policy](https://climate.com/legal/privacy-policy)
-- [Git Hub Org](https://github.com/TheClimateCorporation/api-example)
-- [Partners](https://climate.com/partners)
-- [OpenAPI](openapi/climate-fieldview-platform-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [JSON Schema](json-schema/climate-fieldview-field-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [J S O N L D Context](json-ld/climate-fieldview-context.jsonld)
-- [Spectral Rules](rules/climate-fieldview-rules.yml) — [Spectral](https://docs.stoplight.io/docs/spectral)
+- [Getting started](https://dev.fieldview.com/faq/)
+- [Blog](https://climate.com/en-us/resources/blog.html)
+- [Terms of service](https://climate.com/en-us/legal/terms-of-service.html)
+- [Privacy policy](https://climate.com/legal/privacy-policy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 44.9** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 56.8 |
+| Contract governance | 13.6 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 53.6 |
+| Access clarity | 28.9 |
+
+**Agent readiness 29.6** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | verified |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/climate-fieldview/](https://apis.io/providers/climate-fieldview/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Climate FieldView: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/climate-fieldview/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
